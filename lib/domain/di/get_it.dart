@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:save_bill/application/contact_list_cubit/contact_list_cubit.dart';
+import 'package:save_bill/application/bloc/contact_list_bloc.dart';
 import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
 import 'package:save_bill/domain/i_repo/i_contact_repo.dart';
 import 'package:save_bill/domain/i_repo/i_firebase_repo.dart';
@@ -16,6 +16,6 @@ Future init() async {
   getItInstance.registerLazySingleton<RouteGenerator>(() => RouteGenerator());
   getItInstance.registerFactory<UserListBloc>(
       () => UserListBloc(fireRepo: getItInstance()));
-  getItInstance.registerFactory<ContactListCubit>(
-      () => ContactListCubit(contactRepo: getItInstance()));
+  getItInstance.registerFactory<ContactListBloc>(
+      () => ContactListBloc(contactRepo: getItInstance()));
 }

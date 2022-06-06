@@ -5,18 +5,18 @@ import 'package:save_bill/domain/failures/failure.dart';
 import 'package:save_bill/domain/i_repo/i_contact_repo.dart';
 import 'package:save_bill/domain/models/contact_model/contact_model.dart';
 
+part 'contact_list_event.dart';
 part 'contact_list_state.dart';
-part 'contact_list_cubit.freezed.dart';
+part 'contact_list_bloc.freezed.dart';
 
-class ContactListCubit extends Cubit<ContactListState> {
+class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
   late final IContactRepo _contactRepo;
-  ContactListCubit({required IContactRepo contactRepo})
+  ContactListBloc({required IContactRepo contactRepo})
       : super(ContactListState.initial()) {
     _contactRepo = contactRepo;
-  }
-
-  void getContactLists() async {
-    try {
+    on<ContactListEvent>((event, emit) async {
+      if (event is _LoadConctact) {
+                    try {
       emit(state.copyWith(isLoading: true));
       Either<Failure, List<ContactModel>> response =
           await _contactRepo.getContactList();
@@ -29,5 +29,7 @@ class ContactListCubit extends Cubit<ContactListState> {
       emit(state.copyWith(
           isLoading: false, error: const Failure.internalFailure()));
     }
+      }
+    });
   }
 }

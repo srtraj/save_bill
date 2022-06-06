@@ -1,5 +1,4 @@
-part of 'contact_list_cubit.dart';
-
+part of 'contact_list_bloc.dart';
 @freezed
 class ContactListState with _$ContactListState {
   const factory ContactListState({

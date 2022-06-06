@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:save_bill/application/contact_list_cubit/contact_list_cubit.dart';
+import 'package:save_bill/application/bloc/contact_list_bloc.dart';
 import 'package:save_bill/domain/models/contact_model/contact_model.dart';
 import 'package:save_bill/presentation/functions.dart';
 
@@ -9,7 +9,7 @@ class ConatctListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ContactListCubit, ContactListState>(
+    return BlocBuilder<ContactListBloc, ContactListState>(
       builder: (context, state) {
         return ListView.builder(
             itemCount: state.data.length,
