@@ -345,7 +345,7 @@ abstract class _FilterUser implements UserListEvent {
 mixin _$UserListState {
   bool get isLoading => throw _privateConstructorUsedError;
   List<UserModel>? get originalUserData => throw _privateConstructorUsedError;
-  List<UserModel>? get data => throw _privateConstructorUsedError;
+  List<UserModel> get data => throw _privateConstructorUsedError;
   Failure? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -361,7 +361,7 @@ abstract class $UserListStateCopyWith<$Res> {
   $Res call(
       {bool isLoading,
       List<UserModel>? originalUserData,
-      List<UserModel>? data,
+      List<UserModel> data,
       Failure? error});
 
   $FailureCopyWith<$Res>? get error;
@@ -395,7 +395,7 @@ class _$UserListStateCopyWithImpl<$Res>
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>?,
+              as List<UserModel>,
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -425,7 +425,7 @@ abstract class _$$_UserListStateCopyWith<$Res>
   $Res call(
       {bool isLoading,
       List<UserModel>? originalUserData,
-      List<UserModel>? data,
+      List<UserModel> data,
       Failure? error});
 
   @override
@@ -462,7 +462,7 @@ class __$$_UserListStateCopyWithImpl<$Res>
       data: data == freezed
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>?,
+              as List<UserModel>,
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -477,7 +477,7 @@ class _$_UserListState implements _UserListState {
   const _$_UserListState(
       {required this.isLoading,
       final List<UserModel>? originalUserData,
-      final List<UserModel>? data,
+      required final List<UserModel> data,
       this.error})
       : _originalUserData = originalUserData,
         _data = data;
@@ -493,13 +493,11 @@ class _$_UserListState implements _UserListState {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<UserModel>? _data;
+  final List<UserModel> _data;
   @override
-  List<UserModel>? get data {
-    final value = _data;
-    if (value == null) return null;
+  List<UserModel> get data {
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_data);
   }
 
   @override
@@ -540,7 +538,7 @@ abstract class _UserListState implements UserListState {
   const factory _UserListState(
       {required final bool isLoading,
       final List<UserModel>? originalUserData,
-      final List<UserModel>? data,
+      required final List<UserModel> data,
       final Failure? error}) = _$_UserListState;
 
   @override
@@ -548,7 +546,7 @@ abstract class _UserListState implements UserListState {
   @override
   List<UserModel>? get originalUserData => throw _privateConstructorUsedError;
   @override
-  List<UserModel>? get data => throw _privateConstructorUsedError;
+  List<UserModel> get data => throw _privateConstructorUsedError;
   @override
   Failure? get error => throw _privateConstructorUsedError;
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:save_bill/application/bloc/contact_list_bloc.dart';
+import 'package:save_bill/application/contact_list_bloc/contact_list_bloc.dart';
 import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
 import 'package:save_bill/domain/di/get_it.dart';
 import 'package:save_bill/presentation/pages/add_customer/add_customer_page.dart';

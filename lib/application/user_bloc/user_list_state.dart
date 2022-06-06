@@ -5,9 +5,9 @@ class UserListState with _$UserListState {
   const factory UserListState({
     required bool isLoading,
     List<UserModel>? originalUserData,
-    List<UserModel>? data,
+    required List<UserModel> data,
     Failure? error,
   }) = _UserListState;
   factory UserListState.initial() =>
-      const UserListState(isLoading: false, originalUserData: [], data: []);
+      const UserListState(isLoading: false, data: []);
 }

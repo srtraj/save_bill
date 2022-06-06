@@ -1,5 +1,5 @@
 import 'package:get_it/get_it.dart';
-import 'package:save_bill/application/bloc/contact_list_bloc.dart';
+import 'package:save_bill/application/contact_list_bloc/contact_list_bloc.dart';
 import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
 import 'package:save_bill/domain/i_repo/i_contact_repo.dart';
 import 'package:save_bill/domain/i_repo/i_firebase_repo.dart';

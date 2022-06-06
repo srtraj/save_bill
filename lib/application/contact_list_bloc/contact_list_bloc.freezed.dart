@@ -19,32 +19,38 @@ mixin _$ContactListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadContact,
+    required TResult Function(String key) filterContact,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loadContact,
+    TResult Function(String key)? filterContact,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadContact,
+    TResult Function(String key)? filterContact,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadConctact value) loadContact,
+    required TResult Function(_FilterConctact value) filterContact,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LoadConctact value)? loadContact,
+    TResult Function(_FilterConctact value)? filterContact,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadConctact value)? loadContact,
+    TResult Function(_FilterConctact value)? filterContact,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +115,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadContact,
+    required TResult Function(String key) filterContact,
   }) {
     return loadContact();
   }
@@ -117,6 +124,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loadContact,
+    TResult Function(String key)? filterContact,
   }) {
     return loadContact?.call();
   }
@@ -125,6 +133,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadContact,
+    TResult Function(String key)? filterContact,
     required TResult orElse(),
   }) {
     if (loadContact != null) {
@@ -137,6 +146,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadConctact value) loadContact,
+    required TResult Function(_FilterConctact value) filterContact,
   }) {
     return loadContact(this);
   }
@@ -145,6 +155,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_LoadConctact value)? loadContact,
+    TResult Function(_FilterConctact value)? filterContact,
   }) {
     return loadContact?.call(this);
   }
@@ -153,6 +164,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadConctact value)? loadContact,
+    TResult Function(_FilterConctact value)? filterContact,
     required TResult orElse(),
   }) {
     if (loadContact != null) {
@@ -167,8 +179,144 @@ abstract class _LoadConctact implements ContactListEvent {
 }
 
 /// @nodoc
+abstract class _$$_FilterConctactCopyWith<$Res> {
+  factory _$$_FilterConctactCopyWith(
+          _$_FilterConctact value, $Res Function(_$_FilterConctact) then) =
+      __$$_FilterConctactCopyWithImpl<$Res>;
+  $Res call({String key});
+}
+
+/// @nodoc
+class __$$_FilterConctactCopyWithImpl<$Res>
+    extends _$ContactListEventCopyWithImpl<$Res>
+    implements _$$_FilterConctactCopyWith<$Res> {
+  __$$_FilterConctactCopyWithImpl(
+      _$_FilterConctact _value, $Res Function(_$_FilterConctact) _then)
+      : super(_value, (v) => _then(v as _$_FilterConctact));
+
+  @override
+  _$_FilterConctact get _value => super._value as _$_FilterConctact;
+
+  @override
+  $Res call({
+    Object? key = freezed,
+  }) {
+    return _then(_$_FilterConctact(
+      key: key == freezed
+          ? _value.key
+          : key // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_FilterConctact implements _FilterConctact {
+  const _$_FilterConctact({required this.key});
+
+  @override
+  final String key;
+
+  @override
+  String toString() {
+    return 'ContactListEvent.filterContact(key: $key)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_FilterConctact &&
+            const DeepCollectionEquality().equals(other.key, key));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(key));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_FilterConctactCopyWith<_$_FilterConctact> get copyWith =>
+      __$$_FilterConctactCopyWithImpl<_$_FilterConctact>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() loadContact,
+    required TResult Function(String key) filterContact,
+  }) {
+    return filterContact(key);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? loadContact,
+    TResult Function(String key)? filterContact,
+  }) {
+    return filterContact?.call(key);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? loadContact,
+    TResult Function(String key)? filterContact,
+    required TResult orElse(),
+  }) {
+    if (filterContact != null) {
+      return filterContact(key);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadConctact value) loadContact,
+    required TResult Function(_FilterConctact value) filterContact,
+  }) {
+    return filterContact(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_LoadConctact value)? loadContact,
+    TResult Function(_FilterConctact value)? filterContact,
+  }) {
+    return filterContact?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadConctact value)? loadContact,
+    TResult Function(_FilterConctact value)? filterContact,
+    required TResult orElse(),
+  }) {
+    if (filterContact != null) {
+      return filterContact(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _FilterConctact implements ContactListEvent {
+  const factory _FilterConctact({required final String key}) =
+      _$_FilterConctact;
+
+  String get key => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_FilterConctactCopyWith<_$_FilterConctact> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$ContactListState {
   bool get isLoading => throw _privateConstructorUsedError;
+  List<ContactModel>? get originalData => throw _privateConstructorUsedError;
   List<ContactModel> get data => throw _privateConstructorUsedError;
   Failure? get error => throw _privateConstructorUsedError;
 
@@ -182,7 +330,11 @@ abstract class $ContactListStateCopyWith<$Res> {
   factory $ContactListStateCopyWith(
           ContactListState value, $Res Function(ContactListState) then) =
       _$ContactListStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, List<ContactModel> data, Failure? error});
+  $Res call(
+      {bool isLoading,
+      List<ContactModel>? originalData,
+      List<ContactModel> data,
+      Failure? error});
 
   $FailureCopyWith<$Res>? get error;
 }
@@ -199,6 +351,7 @@ class _$ContactListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? originalData = freezed,
     Object? data = freezed,
     Object? error = freezed,
   }) {
@@ -207,6 +360,10 @@ class _$ContactListStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      originalData: originalData == freezed
+          ? _value.originalData
+          : originalData // ignore: cast_nullable_to_non_nullable
+              as List<ContactModel>?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -237,7 +394,11 @@ abstract class _$$_ContactListStateCopyWith<$Res>
           _$_ContactListState value, $Res Function(_$_ContactListState) then) =
       __$$_ContactListStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, List<ContactModel> data, Failure? error});
+  $Res call(
+      {bool isLoading,
+      List<ContactModel>? originalData,
+      List<ContactModel> data,
+      Failure? error});
 
   @override
   $FailureCopyWith<$Res>? get error;
@@ -257,6 +418,7 @@ class __$$_ContactListStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? originalData = freezed,
     Object? data = freezed,
     Object? error = freezed,
   }) {
@@ -265,6 +427,10 @@ class __$$_ContactListStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      originalData: originalData == freezed
+          ? _value._originalData
+          : originalData // ignore: cast_nullable_to_non_nullable
+              as List<ContactModel>?,
       data: data == freezed
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -282,12 +448,23 @@ class __$$_ContactListStateCopyWithImpl<$Res>
 class _$_ContactListState implements _ContactListState {
   const _$_ContactListState(
       {required this.isLoading,
+      final List<ContactModel>? originalData,
       required final List<ContactModel> data,
       this.error})
-      : _data = data;
+      : _originalData = originalData,
+        _data = data;
 
   @override
   final bool isLoading;
+  final List<ContactModel>? _originalData;
+  @override
+  List<ContactModel>? get originalData {
+    final value = _originalData;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   final List<ContactModel> _data;
   @override
   List<ContactModel> get data {
@@ -300,7 +477,7 @@ class _$_ContactListState implements _ContactListState {
 
   @override
   String toString() {
-    return 'ContactListState(isLoading: $isLoading, data: $data, error: $error)';
+    return 'ContactListState(isLoading: $isLoading, originalData: $originalData, data: $data, error: $error)';
   }
 
   @override
@@ -309,6 +486,8 @@ class _$_ContactListState implements _ContactListState {
         (other.runtimeType == runtimeType &&
             other is _$_ContactListState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other._originalData, _originalData) &&
             const DeepCollectionEquality().equals(other._data, _data) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
@@ -317,6 +496,7 @@ class _$_ContactListState implements _ContactListState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(_originalData),
       const DeepCollectionEquality().hash(_data),
       const DeepCollectionEquality().hash(error));
 
@@ -329,11 +509,14 @@ class _$_ContactListState implements _ContactListState {
 abstract class _ContactListState implements ContactListState {
   const factory _ContactListState(
       {required final bool isLoading,
+      final List<ContactModel>? originalData,
       required final List<ContactModel> data,
       final Failure? error}) = _$_ContactListState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
+  @override
+  List<ContactModel>? get originalData => throw _privateConstructorUsedError;
   @override
   List<ContactModel> get data => throw _privateConstructorUsedError;
   @override
