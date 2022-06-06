@@ -16,19 +16,44 @@ class ContactListBloc extends Bloc<ContactListEvent, ContactListState> {
     _contactRepo = contactRepo;
     on<ContactListEvent>((event, emit) async {
       if (event is _LoadConctact) {
-                    try {
-      emit(state.copyWith(isLoading: true));
-      Either<Failure, List<ContactModel>> response =
-          await _contactRepo.getContactList();
-      emit(response.fold(
-        (error) => state.copyWith(isLoading: false, error: error),
-        (data) => state.copyWith(isLoading: false, data: data),
-      ));
-      emit(state.copyWith(isLoading: false));
-    } catch (e) {
-      emit(state.copyWith(
-          isLoading: false, error: const Failure.internalFailure()));
-    }
+        try {
+          emit(state.copyWith(isLoading: true, originalData: null));
+          Either<Failure, List<ContactModel>> response =
+              await _contactRepo.getContactList();
+          emit(response.fold(
+            (error) => state.copyWith(isLoading: false, error: error),
+            (data) => state.copyWith(isLoading: false, data: data),
+          ));
+          emit(state.copyWith(isLoading: false));
+        } catch (e) {
+          emit(state.copyWith(
+              isLoading: false, error: const Failure.internalFailure()));
+        }
+      }
+          if (event is _FilterConctact) {
+      try {
+          emit(state.copyWith(
+              isLoading: true,
+              originalData:
+                  state.originalData ?? state.data ));
+          List<ContactModel> lst = state.originalData!;
+          if (event.searchKey.isNotEmpty) {
+            lst = lst
+                .where((element) => element.name
+                    .toString()
+                    .toLowerCase()
+                    .contains(event.searchKey.toLowerCase()))
+                .toList();
+                emit(state.copyWith(isLoading: false, data: lst));
+          }
+          else{
+            emit(state.copyWith(isLoading: false, data: lst,originalData: null));
+          }
+          
+        } catch (error) {
+          emit(state.copyWith(
+              isLoading: false, error: const Failure.internalFailure()));
+        }
       }
     });
   }

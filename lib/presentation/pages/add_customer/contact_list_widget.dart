@@ -12,11 +12,13 @@ class ConatctListWidget extends StatelessWidget {
     return BlocBuilder<ContactListBloc, ContactListState>(
       builder: (context, state) {
         return ListView.builder(
+            padding: EdgeInsets.zero,
             itemCount: state.data.length,
             itemBuilder: (BuildContext context, int index) {
               ContactModel contact = state.data[index];
 
               return ListTile(
+                onTap: () {},
                 leading: Container(
                   height: 40,
                   width: 40,

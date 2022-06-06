@@ -19,19 +19,19 @@ mixin _$ContactListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadContact,
-    required TResult Function(String key) filterContact,
+    required TResult Function(String searchKey) filterContact,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loadContact,
-    TResult Function(String key)? filterContact,
+    TResult Function(String searchKey)? filterContact,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadContact,
-    TResult Function(String key)? filterContact,
+    TResult Function(String searchKey)? filterContact,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,7 +115,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadContact,
-    required TResult Function(String key) filterContact,
+    required TResult Function(String searchKey) filterContact,
   }) {
     return loadContact();
   }
@@ -124,7 +124,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loadContact,
-    TResult Function(String key)? filterContact,
+    TResult Function(String searchKey)? filterContact,
   }) {
     return loadContact?.call();
   }
@@ -133,7 +133,7 @@ class _$_LoadConctact implements _LoadConctact {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadContact,
-    TResult Function(String key)? filterContact,
+    TResult Function(String searchKey)? filterContact,
     required TResult orElse(),
   }) {
     if (loadContact != null) {
@@ -183,7 +183,7 @@ abstract class _$$_FilterConctactCopyWith<$Res> {
   factory _$$_FilterConctactCopyWith(
           _$_FilterConctact value, $Res Function(_$_FilterConctact) then) =
       __$$_FilterConctactCopyWithImpl<$Res>;
-  $Res call({String key});
+  $Res call({String searchKey});
 }
 
 /// @nodoc
@@ -199,12 +199,12 @@ class __$$_FilterConctactCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? key = freezed,
+    Object? searchKey = freezed,
   }) {
     return _then(_$_FilterConctact(
-      key: key == freezed
-          ? _value.key
-          : key // ignore: cast_nullable_to_non_nullable
+      searchKey: searchKey == freezed
+          ? _value.searchKey
+          : searchKey // ignore: cast_nullable_to_non_nullable
               as String,
     ));
   }
@@ -213,14 +213,14 @@ class __$$_FilterConctactCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_FilterConctact implements _FilterConctact {
-  const _$_FilterConctact({required this.key});
+  const _$_FilterConctact({required this.searchKey});
 
   @override
-  final String key;
+  final String searchKey;
 
   @override
   String toString() {
-    return 'ContactListEvent.filterContact(key: $key)';
+    return 'ContactListEvent.filterContact(searchKey: $searchKey)';
   }
 
   @override
@@ -228,12 +228,12 @@ class _$_FilterConctact implements _FilterConctact {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_FilterConctact &&
-            const DeepCollectionEquality().equals(other.key, key));
+            const DeepCollectionEquality().equals(other.searchKey, searchKey));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(key));
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(searchKey));
 
   @JsonKey(ignore: true)
   @override
@@ -244,29 +244,29 @@ class _$_FilterConctact implements _FilterConctact {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loadContact,
-    required TResult Function(String key) filterContact,
+    required TResult Function(String searchKey) filterContact,
   }) {
-    return filterContact(key);
+    return filterContact(searchKey);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? loadContact,
-    TResult Function(String key)? filterContact,
+    TResult Function(String searchKey)? filterContact,
   }) {
-    return filterContact?.call(key);
+    return filterContact?.call(searchKey);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loadContact,
-    TResult Function(String key)? filterContact,
+    TResult Function(String searchKey)? filterContact,
     required TResult orElse(),
   }) {
     if (filterContact != null) {
-      return filterContact(key);
+      return filterContact(searchKey);
     }
     return orElse();
   }
@@ -304,10 +304,10 @@ class _$_FilterConctact implements _FilterConctact {
 }
 
 abstract class _FilterConctact implements ContactListEvent {
-  const factory _FilterConctact({required final String key}) =
+  const factory _FilterConctact({required final String searchKey}) =
       _$_FilterConctact;
 
-  String get key => throw _privateConstructorUsedError;
+  String get searchKey => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$_FilterConctactCopyWith<_$_FilterConctact> get copyWith =>
       throw _privateConstructorUsedError;

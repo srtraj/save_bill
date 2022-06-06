@@ -17,8 +17,7 @@ class _AddCustomerPageState extends State<AddCustomerPage> {
   @override
   void initState() {
     _cntMob = TextEditingController();
-    context
-        .read<ContactListBloc>().add(const ContactListEvent.loadContact());
+    context.read<ContactListBloc>().add(const ContactListEvent.loadContact());
     super.initState();
   }
 
@@ -62,6 +61,13 @@ class _AddCustomerPageState extends State<AddCustomerPage> {
               hintText: "Enter Number (Optional)",
               hasClear: true,
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            Align(
+                alignment: Alignment.centerRight,
+                child: ElevatedButton(
+                    onPressed: () {}, child: const Text("Continue"))),
             const Expanded(child: ConatctListWidget())
           ],
         ),

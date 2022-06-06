@@ -18,13 +18,12 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
     on<UserListEvent>((event, emit) async {
       if (event is _LoadUser) {
         try {
-          emit(state.copyWith(isLoading: true));
+          emit(state.copyWith(isLoading: true,originalUserData: null));
           Either<Failure, List<UserModel>> response =
               await _fireRepo.getUserList(phoneNumber: event.phoneNumber);
           emit(response.fold(
               (error) => state.copyWith(isLoading: false, error: error),
-              (data) => state.copyWith(
-                  isLoading: false, data: data, originalUserData: data)));
+              (data) => state.copyWith(isLoading: false, data: data)));
         } catch (error) {
           emit(state.copyWith(
               isLoading: false, error: const Failure.internalFailure()));
@@ -32,7 +31,10 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
       }
       if (event is _FilterUser) {
         try {
-          emit(state.copyWith(isLoading: true));
+          emit(state.copyWith(
+              isLoading: true,
+              originalUserData:
+                  state.originalUserData ?? state.data ));
           List<UserModel> lst = state.originalUserData!;
           if (event.searchKey.isNotEmpty) {
             lst = lst
@@ -41,8 +43,12 @@ class UserListBloc extends Bloc<UserListEvent, UserListState> {
                     .toLowerCase()
                     .contains(event.searchKey.toLowerCase()))
                 .toList();
+                emit(state.copyWith(isLoading: false, data: lst));
           }
-          emit(state.copyWith(isLoading: false, data: lst));
+          else{
+            emit(state.copyWith(isLoading: false, data: lst,originalUserData: null));
+          }
+          
         } catch (error) {
           emit(state.copyWith(
               isLoading: false, error: const Failure.internalFailure()));

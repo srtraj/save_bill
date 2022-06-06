@@ -28,7 +28,7 @@ class _UserListState extends State<UserList> {
     return BlocBuilder<UserListBloc, UserListState>(
       builder: (context, state) {
         if (!state.isLoading) {
-          List<UserModel> list = state.data ?? [];
+          List<UserModel> list = state.data;
           return Column(
             children: [
               const SizedBox(
