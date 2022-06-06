@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:save_bill/domain/failures/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:save_bill/domain/i_repo/i_contact_repo.dart';
@@ -16,10 +18,8 @@ class ContactRepo implements IContactRepo {
           contactList.add(ContactModel(
               name: element.displayName,
               phones: phone.number,
-              photo: element.photo));
+              photo: element.thumbnail));
         }
-
-        print("-------------->${element.photo}");
       }
     }
     return Right(contactList);

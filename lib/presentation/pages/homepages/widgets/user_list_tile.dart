@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/domain/models/user_model/user_model.dart';
+import 'package:save_bill/presentation/functions.dart';
 import 'package:save_bill/routes/route_arguments.dart';
 import 'package:save_bill/routes/routes.dart';
 
@@ -45,8 +46,5 @@ class UserListTile extends StatelessWidget {
     );
   }
 
-  getFirstLetterFromName(String name) {
-    List<String> ls = name.split(" ");
-    return ls.map((String e) => e[0]).join();
-  }
+ 
 }
