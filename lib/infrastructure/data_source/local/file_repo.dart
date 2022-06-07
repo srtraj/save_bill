@@ -1,11 +1,12 @@
 import 'package:file_picker/file_picker.dart';
+import 'package:flutter/material.dart';
 import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:save_bill/domain/failures/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'dart:io';
 
 import 'package:save_bill/domain/i_repo/i_file_repo.dart';
+import 'package:save_bill/routes/routes.dart';
 
 class FileRepo implements IFileRepo {
   @override
@@ -58,6 +59,41 @@ class FileRepo implements IFileRepo {
     try {
       final value = await FilePicker.platform.pickFiles(
         type: FileType.image,
+      );
+      if (value != null) {
+        return Right(File(value.files.single.path!));
+      } else {
+        return const Left(Failure.internalFailure());
+      }
+    } on Exception catch (_) {
+      return const Left(Failure.internalFailure());
+    }
+  }
+  
+  @override
+  Future<Either<Failure, File>> captureImage(context) async {
+
+      try {
+      final value = await Navigator.pushNamed(
+    context,
+    Routes.cameraPreview,
+  );
+      if (value != null) {
+        return Right(value as File);
+      } else {
+        return const Left(Failure.internalFailure());
+      }
+    } on Exception catch (_) {
+      return const Left(Failure.internalFailure());
+    }
+  }
+  
+  @override
+  Future<Either<Failure, File>> pickPdf() async {
+      try {
+      final value = await FilePicker.platform.pickFiles(
+        type: FileType.custom,
+        allowedExtensions: ['pdf'],
       );
       if (value != null) {
         return Right(File(value.files.single.path!));

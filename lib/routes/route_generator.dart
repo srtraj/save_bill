@@ -7,7 +7,7 @@ import 'package:save_bill/domain/di/get_it.dart';
 import 'package:save_bill/presentation/pages/add_customer/add_customer_page.dart';
 import 'package:save_bill/presentation/pages/bill_pages/pages/add_bill.dart';
 import 'package:save_bill/presentation/pages/bill_pages/pages/bill_list.dart';
-import 'package:save_bill/presentation/pages/bill_pages/widgets/add_bill/camera_preview.dart';
+import 'package:save_bill/presentation/widgets/camera_preview.dart';
 import 'package:save_bill/presentation/pages/get_start/get_start_page.dart';
 import 'package:save_bill/presentation/pages/homepages/homepage.dart';
 import 'package:save_bill/presentation/pages/login_page/otp_verification_page/otp_verification.dart';
@@ -63,9 +63,8 @@ class RouteGenerator {
         return MaterialPageRoute(
             settings: settings, builder: (_) => const AddBill());
       case Routes.cameraPreview:
-       final argument = settings.arguments as CameraPreviewArguement;
         return MaterialPageRoute(
-            settings: settings, builder: (_) =>  CameraPreviewPage(argument: argument));
+            settings: settings, builder: (_) =>  const CameraPreviewPage());
 
       default:
         return _errorRoute();

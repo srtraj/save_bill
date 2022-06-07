@@ -62,6 +62,7 @@ _openModal(context) {
                   children: [
                     GestureDetector(
                       onTap: () async {
+                        Navigator.pop(context);
                         await FilePicker.platform.pickFiles(
                           type: FileType.image,
                         );
@@ -79,10 +80,12 @@ _openModal(context) {
                     ),
                     GestureDetector(
                       onTap: () async {
-                        final cameras = await availableCameras();
-                        Navigator.pushNamed(context, Routes.cameraPreview,
-                            arguments:
-                                CameraPreviewArguement(camera: cameras));
+                        Navigator.pop(context);
+                        final res = await Navigator.pushNamed(
+                          context,
+                          Routes.cameraPreview,
+                        );
+                        print("+++++++++++++++++++++$res");
                       },
                       child: IconLabelWidget(
                           icon: Icon(
