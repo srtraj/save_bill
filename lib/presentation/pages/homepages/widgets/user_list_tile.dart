@@ -12,7 +12,7 @@ class UserListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context, Routes.billList,
+        Navigator.pushNamed(context, Routes.billHome,
             arguments: BillListArgument(clientId: "aa01"));
       },
       child: Container(

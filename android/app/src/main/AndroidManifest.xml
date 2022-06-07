@@ -2,6 +2,8 @@
     package="com.example.save_bill">
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
      <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
+      <uses-permission android:name="android.permission.QUERY_ALL_PACKAGES" />
+
    <application
         android:label="save_bill"
         android:name="${applicationName}"

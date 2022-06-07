@@ -5,7 +5,7 @@ class Routes {
 
   static const String initial = '/';
   static const String userList = 'userList';
-  static const String billList = 'billList';
+  static const String billHome = 'billHome';
   static const String addBill = 'addBill';
   static const String addItem = "addItem";
   static const String saveBillTabPage = "saveBillTabPage";

@@ -1,70 +1,44 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:image_cropper/image_cropper.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:save_bill/application/profile_upadte_bloc/profile_upload_bloc.dart';
+import 'package:save_bill/core/meta_assets.dart';
 
-class ImageProf extends StatefulWidget {
-  const ImageProf({Key? key}) : super(key: key);
-
-  @override
-  State<ImageProf> createState() => _ImageProfState();
-}
-
-class _ImageProfState extends State<ImageProf> {
-  XFile? imageFile;
+class ProfileImageWidget extends StatelessWidget {
+  const ProfileImageWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("widget.title"),
-      ),
-      body: Center(
-        child:
-            imageFile != null ? Image.file(File(imageFile!.path)) : Container(),
-      ),
-      floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.deepOrange,
-          onPressed: () async {
-            await _pickImage();
-          },
-          child: const Icon(Icons.add)),
+    final wt = MediaQuery.of(context).size.width / 100;
+    return BlocBuilder<ProfileUploadBloc, ProfileUploadState>(
+      builder: (context, state) {
+        return Stack(
+          children: [
+            GestureDetector(
+                onTap: () {
+                  context
+                      .read<ProfileUploadBloc>()
+                      .add(const ProfileUploadEvent.picProfile());
+                },
+                child: Container(
+                  height: wt * 40,
+                  width: wt * 40,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: state.data == null
+                          ? const AssetImage(Assets.assetsImagesDummyProfile)
+                              as ImageProvider
+                          : FileImage(File(state.data!.path)),
+                      fit: BoxFit.cover,
+                    ),
+                    borderRadius:
+                        const BorderRadius.all(Radius.circular(120.0)),
+                  ),
+                )),
+          ],
+        );
+      },
     );
-  }
-
-  _pickImage() async {
-    ImagePicker().pickImage(source: ImageSource.gallery).then((value) {
-      if (value != null) {
-        _cropImage(value.path);
-      } else {
-        _clearImage();
-      }
-    });
-  }
-
-  _cropImage(path) async {
-    CroppedFile? croppedFile = await ImageCropper().cropImage(
-        sourcePath: path,
-        aspectRatioPresets: Platform.isAndroid
-            ? [
-                CropAspectRatioPreset.square,
-              ]
-            : [
-                CropAspectRatioPreset.square,
-              ],
-        uiSettings: [
-          AndroidUiSettings(toolbarTitle: 'Cropper', lockAspectRatio: true),
-          IOSUiSettings(title: 'Cropper', aspectRatioLockEnabled: true)
-        ]);
-    if (croppedFile != null) {
-      imageFile = XFile(croppedFile.path);
-    }
-    setState(() {});
-  }
-
-  void _clearImage() {
-    imageFile = null;
-    setState(() {});
   }
 }

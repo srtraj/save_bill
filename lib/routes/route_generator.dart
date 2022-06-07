@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:save_bill/application/contact_list_bloc/contact_list_bloc.dart';
+import 'package:save_bill/application/profile_upadte_bloc/profile_upload_bloc.dart';
 import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
 import 'package:save_bill/domain/di/get_it.dart';
 import 'package:save_bill/presentation/pages/add_customer/add_customer_page.dart';
+import 'package:save_bill/presentation/pages/bill_pages/pages/add_bill.dart';
+import 'package:save_bill/presentation/pages/bill_pages/pages/bill_list.dart';
 import 'package:save_bill/presentation/pages/get_start/get_start_page.dart';
 import 'package:save_bill/presentation/pages/homepages/homepage.dart';
 import 'package:save_bill/presentation/pages/login_page/otp_verification_page/otp_verification.dart';
@@ -31,7 +34,12 @@ class RouteGenerator {
             builder: (_) => OtpVerification(argument: argument));
       case Routes.profileUpdatePage:
         return MaterialPageRoute(
-            settings: settings, builder: (_) => const ProfileUpdatePage());
+            settings: settings,
+             builder: (_) => 
+             BlocProvider(
+            create: (_) => getItInstance<ProfileUploadBloc>(),
+            child: const ProfileUpdatePage(),
+          ),);
       case Routes.homepage:
         return MaterialPageRoute(
           settings: settings,
@@ -47,6 +55,12 @@ class RouteGenerator {
             child: const AddCustomerPage(),
           ),
         );
+           case Routes.billHome:
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const BillHome());
+              case Routes.addBill:
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const AddBill());   
       default:
         return _errorRoute();
     }
