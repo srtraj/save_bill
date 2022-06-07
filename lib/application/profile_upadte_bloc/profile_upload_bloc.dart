@@ -2,7 +2,6 @@ import 'dart:io';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:save_bill/domain/failures/failure.dart';
 import 'package:save_bill/domain/i_repo/i_file_repo.dart';
 
@@ -27,7 +26,6 @@ class ProfileUploadBloc extends Bloc<ProfileUploadEvent, ProfileUploadState> {
               (data) async {
             Either<Failure, File> editResponse =
                 await _fileRepo.editImage1x1(data);
-
             editResponse.fold(
                 (error1) =>
                     emit(state.copyWith(isLoading: false, error: error1)),

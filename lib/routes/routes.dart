@@ -14,5 +14,6 @@ class Routes {
   static const String otpVerification = "otpVerification";
   static const String profileUpdatePage = "profileUpdatePage";
   static const String homepage = "homepage";
-  static const String addCustomer="addCustomer";
+  static const String addCustomer = "addCustomer";
+  static const String cameraPreview = "cameraPreview";
 }

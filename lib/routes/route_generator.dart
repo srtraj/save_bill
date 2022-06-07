@@ -7,6 +7,7 @@ import 'package:save_bill/domain/di/get_it.dart';
 import 'package:save_bill/presentation/pages/add_customer/add_customer_page.dart';
 import 'package:save_bill/presentation/pages/bill_pages/pages/add_bill.dart';
 import 'package:save_bill/presentation/pages/bill_pages/pages/bill_list.dart';
+import 'package:save_bill/presentation/pages/bill_pages/widgets/add_bill/camera_preview.dart';
 import 'package:save_bill/presentation/pages/get_start/get_start_page.dart';
 import 'package:save_bill/presentation/pages/homepages/homepage.dart';
 import 'package:save_bill/presentation/pages/login_page/otp_verification_page/otp_verification.dart';
@@ -34,12 +35,12 @@ class RouteGenerator {
             builder: (_) => OtpVerification(argument: argument));
       case Routes.profileUpdatePage:
         return MaterialPageRoute(
-            settings: settings,
-             builder: (_) => 
-             BlocProvider(
+          settings: settings,
+          builder: (_) => BlocProvider(
             create: (_) => getItInstance<ProfileUploadBloc>(),
             child: const ProfileUpdatePage(),
-          ),);
+          ),
+        );
       case Routes.homepage:
         return MaterialPageRoute(
           settings: settings,
@@ -55,12 +56,17 @@ class RouteGenerator {
             child: const AddCustomerPage(),
           ),
         );
-           case Routes.billHome:
+      case Routes.billHome:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const BillHome());
-              case Routes.addBill:
+      case Routes.addBill:
         return MaterialPageRoute(
-            settings: settings, builder: (_) => const AddBill());   
+            settings: settings, builder: (_) => const AddBill());
+      case Routes.cameraPreview:
+       final argument = settings.arguments as CameraPreviewArguement;
+        return MaterialPageRoute(
+            settings: settings, builder: (_) =>  CameraPreviewPage(argument: argument));
+
       default:
         return _errorRoute();
     }

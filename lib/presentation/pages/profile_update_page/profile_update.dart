@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:save_bill/presentation/pages/profile_update_page/image_prof.dart';
+import 'package:save_bill/presentation/pages/profile_update_page/profile_image.dart';
 import 'package:save_bill/routes/routes.dart';
 
 class ProfileUpdatePage extends StatefulWidget {
@@ -39,7 +39,7 @@ class _ProfileUpdatePageState extends State<ProfileUpdatePage> {
                 Container(
                   height: ht * 50,
                   color: Theme.of(context).primaryColor,
-                  child: Center(
+                  child: const Center(
                     child: ProfileImageWidget(),
                   ),
                 ),
@@ -108,7 +108,10 @@ class _ProfileUpdatePageState extends State<ProfileUpdatePage> {
                             ),
                           ),
                         ),
-                        child: const Text("Proceed"),
+                        child: const Text(
+                          "Proceed",
+                          style: TextStyle(color: Colors.black),
+                        ),
                       ),
                     ),
                   ),
@@ -123,5 +126,4 @@ class _ProfileUpdatePageState extends State<ProfileUpdatePage> {
       ),
     );
   }
-
 }

@@ -1,6 +1,12 @@
+import 'dart:io';
+
+import 'package:camera/camera.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:save_bill/presentation/widgets/icon_label_widget.dart';
+import 'package:save_bill/routes/route_arguments.dart';
+import 'package:save_bill/routes/routes.dart';
 
 class AttachBillsWidget extends StatelessWidget {
   const AttachBillsWidget({
@@ -13,7 +19,7 @@ class AttachBillsWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: ()=>_openModal(context),
+      onTap: () => _openModal(context),
       child: Card(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
@@ -55,7 +61,11 @@ _openModal(context) {
                 child: Row(
                   children: [
                     GestureDetector(
-                      onTap: (){},
+                      onTap: () async {
+                        await FilePicker.platform.pickFiles(
+                          type: FileType.image,
+                        );
+                      },
                       child: IconLabelWidget(
                           icon: Icon(
                             Icons.image,
@@ -68,7 +78,12 @@ _openModal(context) {
                       width: wt * 10,
                     ),
                     GestureDetector(
-                            onTap: (){},
+                      onTap: () async {
+                        final cameras = await availableCameras();
+                        Navigator.pushNamed(context, Routes.cameraPreview,
+                            arguments:
+                                CameraPreviewArguement(camera: cameras));
+                      },
                       child: IconLabelWidget(
                           icon: Icon(
                             Icons.photo_camera,
@@ -80,7 +95,7 @@ _openModal(context) {
                       width: wt * 10,
                     ),
                     GestureDetector(
-                            onTap: (){},
+                      onTap: () {},
                       child: IconLabelWidget(
                           icon: Icon(
                             FontAwesomeIcons.filePdf,
