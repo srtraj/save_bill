@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/core/meta_colors.dart';
-import 'package:save_bill/presentation/pages/bill_pages/widgets/bill_list/bill_tile.dart';
+import 'package:save_bill/presentation/pages/bill_pages/bill_list/widgets/bill_tile.dart';
 
 class BillListWidget extends StatelessWidget {
   const BillListWidget({

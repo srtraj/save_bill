@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
+import 'package:save_bill/presentation/functions.dart';
 
 class CameraPreviewPage extends StatefulWidget {
   const CameraPreviewPage({Key? key}) : super(key: key);
-
 
   @override
   State<CameraPreviewPage> createState() => _CameraPreviewPageState();
@@ -15,7 +16,8 @@ class _CameraPreviewPageState extends State<CameraPreviewPage>
     with WidgetsBindingObserver {
   late CameraController _controller;
   late bool _isCameraInitialized;
-   List<CameraDescription>? cameras;
+  late bool _isCaptureLoading;
+  List<CameraDescription>? cameras;
   double _minAvailableZoom = 1.0;
   double _maxAvailableZoom = 1.0;
   double _currentZoomLevel = 1.0;
@@ -23,14 +25,15 @@ class _CameraPreviewPageState extends State<CameraPreviewPage>
   @override
   void initState() {
     super.initState();
-      _isCameraInitialized = false;
+    _isCameraInitialized = false;
+    _isCaptureLoading = false;
     cameraInitialize();
   }
 
   cameraInitialize() async {
-      _isCameraInitialized = false;
+    _isCameraInitialized = false;
     cameras ??= await availableCameras();
-  
+
     _controller = CameraController(
       cameras![0],
       ResolutionPreset.max,
@@ -79,6 +82,11 @@ class _CameraPreviewPageState extends State<CameraPreviewPage>
         return false;
       },
       child: Scaffold(
+        backgroundColor: Colors.black,
+        appBar: AppBar(
+          elevation: 0,
+          backgroundColor: Colors.black,
+        ),
         body: SafeArea(
           child: SizedBox(
             height: ht * 100,
@@ -145,15 +153,27 @@ class _CameraPreviewPageState extends State<CameraPreviewPage>
                         color: Colors.black,
                       ),
                 Positioned.fill(
-                  bottom: 20,
+                  bottom: 10,
                   child: Align(
                     alignment: Alignment.bottomCenter,
-                    child: InkWell(
-                      onTap: () => captureImage(context),
-                      child: const Icon(
-                        Icons.camera,
-                        size: 60,
+                    child: ElevatedButton(
+                      onPressed: _isCaptureLoading
+                          ? null
+                          : () async {
+                              setState(() {
+                                _isCaptureLoading = true;
+                              });
+                              await captureImage(context);
+                            },
+                      style: ElevatedButton.styleFrom(
+                        shape: const CircleBorder(),
                       ),
+                      child: _isCaptureLoading
+                          ? const CircularProgressIndicator()
+                          : const Icon(
+                              Icons.camera,
+                              size: 60,
+                            ),
                     ),
                   ),
                 ),
@@ -178,10 +198,135 @@ class _CameraPreviewPageState extends State<CameraPreviewPage>
     try {
       if (_controller.value.isInitialized) {
         final image = await _controller.takePicture();
-        Navigator.pop(context, File(image.path));
+        await editImage(context, image);
+        setState(() {
+          _isCaptureLoading = false;
+        });
       }
     } catch (_) {
-      Navigator.pop(context, null);
+      showTaost(message: 'Error taking picture');
+    }
+  }
+
+  editImage(context, file) async {
+    try {
+      CroppedFile? croppedFile =
+          await ImageCropper().cropImage(sourcePath: file.path, uiSettings: [
+        AndroidUiSettings(toolbarTitle: 'Cropper', lockAspectRatio: true),
+        IOSUiSettings(title: 'Cropper', aspectRatioLockEnabled: true)
+      ]);
+      if (croppedFile != null) {
+        Navigator.pop(context, File(croppedFile.path));
+      } else {
+        return null;
+      }
+    } on Exception catch (_) {
+      showTaost(message: "Error cropping image,Please try again");
     }
   }
 }
+
+// class ImagePreview extends StatefulWidget {
+//   const ImagePreview({Key? key, required this.imagePath}) : super(key: key);
+//   final File imagePath;
+
+//   @override
+//   State<ImagePreview> createState() => _ImagePreviewState();
+// }
+
+// class _ImagePreviewState extends State<ImagePreview> {
+//   late File _file;
+//   @override
+//   void initState() {
+//     _file = widget.imagePath;
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     final ht = MediaQuery.of(context).size.height;
+//     return Scaffold(
+//         backgroundColor: Colors.grey[300],
+//         body: SafeArea(
+//           child: Column(
+//             children: [
+//               SizedBox(
+//                 height: ht * 0.01,
+//               ),
+//               Expanded(
+//                 child: Padding(
+//                   padding: const EdgeInsets.all(8.0),
+//                   child: Center(
+//                     child: Image.file(
+//                       _file,
+//                       fit: BoxFit.contain,
+//                     ),
+//                   ),
+//                 ),
+//               ),
+//               Padding(
+//                 padding: const EdgeInsets.symmetric(horizontal: 20.0),
+//                 child: SizedBox(
+//                   height: 75,
+//                   child: Row(
+//                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                     mainAxisSize: MainAxisSize.max,
+//                     children: [
+//                       ElevatedButton(
+//                         onPressed: () => Navigator.pop(context),
+//                         style: ElevatedButton.styleFrom(
+//                           shape: const CircleBorder(),
+//                         ),
+//                         child: const Center(child: Icon(Icons.undo)),
+//                       ),
+//                       ElevatedButton(
+//                         onPressed: () {},
+//                         style: ElevatedButton.styleFrom(
+//                           shape: const CircleBorder(),
+//                         ),
+//                         child: const Center(child: Icon(Icons.done)),
+//                       ),
+//                       ElevatedButton(
+//                         onPressed: () => editImage(_file),
+//                         style: ElevatedButton.styleFrom(
+//                           shape: const CircleBorder(),
+//                         ),
+//                         child: const Center(child: Icon(Icons.edit)),
+//                       ),
+//                     ],
+//                   ),
+//                 ),
+//               ),
+//               const SizedBox(
+//                 height: 10,
+//               )
+//             ],
+//           ),
+//         ));
+//   }
+
+//   editImage(file) async {
+//     try {
+//       CroppedFile? croppedFile = await ImageCropper().cropImage(
+//           sourcePath: file.path,
+//           aspectRatioPresets: Platform.isAndroid
+//               ? [
+//                   CropAspectRatioPreset.square,
+//                 ]
+//               : [
+//                   CropAspectRatioPreset.square,
+//                 ],
+//           uiSettings: [
+//             AndroidUiSettings(toolbarTitle: 'Cropper', lockAspectRatio: true),
+//             IOSUiSettings(title: 'Cropper', aspectRatioLockEnabled: true)
+//           ]);
+//       if (croppedFile != null) {
+//         return File(croppedFile.path);
+//       } else {
+//         return null;
+//       }
+//     } on Exception catch (_) {
+//       showTaost(message: "Error cropping image,Please try again");
+//     }
+//   }
+// }

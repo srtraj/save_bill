@@ -1,47 +1,14 @@
-import 'dart:io';
-
-import 'package:camera/camera.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:save_bill/presentation/widgets/icon_label_widget.dart';
-import 'package:save_bill/routes/route_arguments.dart';
 import 'package:save_bill/routes/routes.dart';
 
-class AttachBillsWidget extends StatelessWidget {
-  const AttachBillsWidget({
-    Key? key,
-    required this.mainColor,
-  }) : super(key: key);
-
-  final Color mainColor;
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () => _openModal(context),
-      child: Card(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-          child: Row(
-            children: [
-              Icon(
-                Icons.photo_camera,
-                color: mainColor,
-              ),
-              const SizedBox(
-                width: 5,
-              ),
-              const Text("Attach bills"),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-_openModal(context) {
+openAttachBillModal({
+  required BuildContext context,
+  required Function picImage,
+  required Function captureImage,
+  required Function pickPdf,
+}) {
   showModalBottomSheet<void>(
       context: context,
       builder: (BuildContext context) {
@@ -62,10 +29,8 @@ _openModal(context) {
                   children: [
                     GestureDetector(
                       onTap: () async {
+                        picImage();
                         Navigator.pop(context);
-                        await FilePicker.platform.pickFiles(
-                          type: FileType.image,
-                        );
                       },
                       child: IconLabelWidget(
                           icon: Icon(
@@ -80,12 +45,8 @@ _openModal(context) {
                     ),
                     GestureDetector(
                       onTap: () async {
+                        captureImage();
                         Navigator.pop(context);
-                        final res = await Navigator.pushNamed(
-                          context,
-                          Routes.cameraPreview,
-                        );
-                        print("+++++++++++++++++++++$res");
                       },
                       child: IconLabelWidget(
                           icon: Icon(
@@ -98,14 +59,17 @@ _openModal(context) {
                       width: wt * 10,
                     ),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        pickPdf();
+                        Navigator.pop(context);
+                      },
                       child: IconLabelWidget(
                           icon: Icon(
-                            FontAwesomeIcons.filePdf,
+                            FontAwesomeIcons.folderOpen,
                             size: wt * 12,
-                            color: Colors.red,
+                            color: const Color(0xFFF9BA04),
                           ),
-                          label: "Pdf"),
+                          label: "File"),
                     ),
                   ],
                 ),

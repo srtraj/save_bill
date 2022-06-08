@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/core/meta_colors.dart';
-import 'package:save_bill/presentation/pages/bill_pages/widgets/add_bill/amount_textfield.dart';
-import 'package:save_bill/presentation/pages/bill_pages/widgets/add_bill/attach_bills.dart';
-import 'package:save_bill/presentation/pages/bill_pages/widgets/add_bill/attach_chips_list.dart';
-import 'package:save_bill/presentation/pages/bill_pages/widgets/add_bill/calender_dropdown.dart';
-import 'package:save_bill/presentation/pages/bill_pages/widgets/add_bill/details_textfield.dart';
+import 'widgets/amount_textfield.dart';
+import 'widgets/attach_bills.dart';
+import 'widgets/attach_chips_list.dart';
+import 'widgets/calender_dropdown.dart';
+import 'widgets/details_textfield.dart';
 
 class AddBill extends StatefulWidget {
   final bool isGave;
@@ -88,4 +88,3 @@ class _AddBillState extends State<AddBill> {
     );
   }
 }
-

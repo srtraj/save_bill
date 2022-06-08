@@ -1,4 +1,5 @@
 import 'package:get_it/get_it.dart';
+import 'package:save_bill/application/attach_bill_bloc/attach_bill_bloc.dart';
 import 'package:save_bill/application/contact_list_bloc/contact_list_bloc.dart';
 import 'package:save_bill/application/profile_upadte_bloc/profile_upload_bloc.dart';
 import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
@@ -25,4 +26,6 @@ Future init() async {
       
         getItInstance.registerFactory<ProfileUploadBloc>(
       () => ProfileUploadBloc(fileRepo: getItInstance()));
+              getItInstance.registerFactory<AttachBillBloc>(
+      () => AttachBillBloc(fileRepo: getItInstance()));
 }

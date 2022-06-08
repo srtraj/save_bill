@@ -19,32 +19,38 @@ mixin _$ProfileUploadEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picProfile,
+    required TResult Function() PicImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picProfile,
+    TResult Function()? PicImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picProfile,
+    TResult Function()? PicImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_picProfile value) picProfile,
+    required TResult Function(_PicImage value) PicImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_picProfile value)? picProfile,
+    TResult Function(_PicImage value)? PicImage,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_picProfile value)? picProfile,
+    TResult Function(_PicImage value)? PicImage,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -109,6 +115,7 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picProfile,
+    required TResult Function() PicImage,
   }) {
     return picProfile();
   }
@@ -117,6 +124,7 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picProfile,
+    TResult Function()? PicImage,
   }) {
     return picProfile?.call();
   }
@@ -125,6 +133,7 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picProfile,
+    TResult Function()? PicImage,
     required TResult orElse(),
   }) {
     if (picProfile != null) {
@@ -137,6 +146,7 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_picProfile value) picProfile,
+    required TResult Function(_PicImage value) PicImage,
   }) {
     return picProfile(this);
   }
@@ -145,6 +155,7 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_picProfile value)? picProfile,
+    TResult Function(_PicImage value)? PicImage,
   }) {
     return picProfile?.call(this);
   }
@@ -153,6 +164,7 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_picProfile value)? picProfile,
+    TResult Function(_PicImage value)? PicImage,
     required TResult orElse(),
   }) {
     if (picProfile != null) {
@@ -167,8 +179,114 @@ abstract class _picProfile implements ProfileUploadEvent {
 }
 
 /// @nodoc
+abstract class _$$_PicImageCopyWith<$Res> {
+  factory _$$_PicImageCopyWith(
+          _$_PicImage value, $Res Function(_$_PicImage) then) =
+      __$$_PicImageCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PicImageCopyWithImpl<$Res>
+    extends _$ProfileUploadEventCopyWithImpl<$Res>
+    implements _$$_PicImageCopyWith<$Res> {
+  __$$_PicImageCopyWithImpl(
+      _$_PicImage _value, $Res Function(_$_PicImage) _then)
+      : super(_value, (v) => _then(v as _$_PicImage));
+
+  @override
+  _$_PicImage get _value => super._value as _$_PicImage;
+}
+
+/// @nodoc
+
+class _$_PicImage implements _PicImage {
+  const _$_PicImage();
+
+  @override
+  String toString() {
+    return 'ProfileUploadEvent.PicImage()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PicImage);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() picProfile,
+    required TResult Function() PicImage,
+  }) {
+    return PicImage();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? picProfile,
+    TResult Function()? PicImage,
+  }) {
+    return PicImage?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? picProfile,
+    TResult Function()? PicImage,
+    required TResult orElse(),
+  }) {
+    if (PicImage != null) {
+      return PicImage();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_picProfile value) picProfile,
+    required TResult Function(_PicImage value) PicImage,
+  }) {
+    return PicImage(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_picProfile value)? picProfile,
+    TResult Function(_PicImage value)? PicImage,
+  }) {
+    return PicImage?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_picProfile value)? picProfile,
+    TResult Function(_PicImage value)? PicImage,
+    required TResult orElse(),
+  }) {
+    if (PicImage != null) {
+      return PicImage(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PicImage implements ProfileUploadEvent {
+  const factory _PicImage() = _$_PicImage;
+}
+
+/// @nodoc
 mixin _$ProfileUploadState {
   bool get isLoading => throw _privateConstructorUsedError;
+  List<File>? get multiData => throw _privateConstructorUsedError;
   File? get data => throw _privateConstructorUsedError;
   Failure? get error => throw _privateConstructorUsedError;
 
@@ -182,7 +300,8 @@ abstract class $ProfileUploadStateCopyWith<$Res> {
   factory $ProfileUploadStateCopyWith(
           ProfileUploadState value, $Res Function(ProfileUploadState) then) =
       _$ProfileUploadStateCopyWithImpl<$Res>;
-  $Res call({bool isLoading, File? data, Failure? error});
+  $Res call(
+      {bool isLoading, List<File>? multiData, File? data, Failure? error});
 
   $FailureCopyWith<$Res>? get error;
 }
@@ -199,6 +318,7 @@ class _$ProfileUploadStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? multiData = freezed,
     Object? data = freezed,
     Object? error = freezed,
   }) {
@@ -207,6 +327,10 @@ class _$ProfileUploadStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      multiData: multiData == freezed
+          ? _value.multiData
+          : multiData // ignore: cast_nullable_to_non_nullable
+              as List<File>?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -237,7 +361,8 @@ abstract class _$$_ProfileUploadStateCopyWith<$Res>
           $Res Function(_$_ProfileUploadState) then) =
       __$$_ProfileUploadStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isLoading, File? data, Failure? error});
+  $Res call(
+      {bool isLoading, List<File>? multiData, File? data, Failure? error});
 
   @override
   $FailureCopyWith<$Res>? get error;
@@ -257,6 +382,7 @@ class __$$_ProfileUploadStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? isLoading = freezed,
+    Object? multiData = freezed,
     Object? data = freezed,
     Object? error = freezed,
   }) {
@@ -265,6 +391,10 @@ class __$$_ProfileUploadStateCopyWithImpl<$Res>
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
               as bool,
+      multiData: multiData == freezed
+          ? _value._multiData
+          : multiData // ignore: cast_nullable_to_non_nullable
+              as List<File>?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -280,10 +410,24 @@ class __$$_ProfileUploadStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProfileUploadState implements _ProfileUploadState {
-  const _$_ProfileUploadState({required this.isLoading, this.data, this.error});
+  const _$_ProfileUploadState(
+      {required this.isLoading,
+      final List<File>? multiData,
+      this.data,
+      this.error})
+      : _multiData = multiData;
 
   @override
   final bool isLoading;
+  final List<File>? _multiData;
+  @override
+  List<File>? get multiData {
+    final value = _multiData;
+    if (value == null) return null;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   final File? data;
   @override
@@ -291,7 +435,7 @@ class _$_ProfileUploadState implements _ProfileUploadState {
 
   @override
   String toString() {
-    return 'ProfileUploadState(isLoading: $isLoading, data: $data, error: $error)';
+    return 'ProfileUploadState(isLoading: $isLoading, multiData: $multiData, data: $data, error: $error)';
   }
 
   @override
@@ -300,6 +444,8 @@ class _$_ProfileUploadState implements _ProfileUploadState {
         (other.runtimeType == runtimeType &&
             other is _$_ProfileUploadState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
+            const DeepCollectionEquality()
+                .equals(other._multiData, _multiData) &&
             const DeepCollectionEquality().equals(other.data, data) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
@@ -308,6 +454,7 @@ class _$_ProfileUploadState implements _ProfileUploadState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(isLoading),
+      const DeepCollectionEquality().hash(_multiData),
       const DeepCollectionEquality().hash(data),
       const DeepCollectionEquality().hash(error));
 
@@ -321,11 +468,14 @@ class _$_ProfileUploadState implements _ProfileUploadState {
 abstract class _ProfileUploadState implements ProfileUploadState {
   const factory _ProfileUploadState(
       {required final bool isLoading,
+      final List<File>? multiData,
       final File? data,
       final Failure? error}) = _$_ProfileUploadState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
+  @override
+  List<File>? get multiData => throw _privateConstructorUsedError;
   @override
   File? get data => throw _privateConstructorUsedError;
   @override

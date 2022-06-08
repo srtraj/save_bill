@@ -19,21 +19,24 @@ mixin _$AttachBillEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picImage,
-    required TResult Function() captureImage,
+    required TResult Function(dynamic context) captureImage,
+    required TResult Function() picFile,
     required TResult Function() picPdf,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
     required TResult orElse(),
   }) =>
@@ -42,6 +45,7 @@ mixin _$AttachBillEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_PicImage value) picImage,
     required TResult Function(_CaptureImage value) captureImage,
+    required TResult Function(_PicFile value) picFile,
     required TResult Function(_PicPdf value) picPdf,
   }) =>
       throw _privateConstructorUsedError;
@@ -49,6 +53,7 @@ mixin _$AttachBillEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +61,7 @@ mixin _$AttachBillEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
     required TResult orElse(),
   }) =>
@@ -121,7 +127,8 @@ class _$_PicImage implements _PicImage {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picImage,
-    required TResult Function() captureImage,
+    required TResult Function(dynamic context) captureImage,
+    required TResult Function() picFile,
     required TResult Function() picPdf,
   }) {
     return picImage();
@@ -131,7 +138,8 @@ class _$_PicImage implements _PicImage {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
   }) {
     return picImage?.call();
@@ -141,7 +149,8 @@ class _$_PicImage implements _PicImage {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
     required TResult orElse(),
   }) {
@@ -156,6 +165,7 @@ class _$_PicImage implements _PicImage {
   TResult map<TResult extends Object?>({
     required TResult Function(_PicImage value) picImage,
     required TResult Function(_CaptureImage value) captureImage,
+    required TResult Function(_PicFile value) picFile,
     required TResult Function(_PicPdf value) picPdf,
   }) {
     return picImage(this);
@@ -166,6 +176,7 @@ class _$_PicImage implements _PicImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
   }) {
     return picImage?.call(this);
@@ -176,6 +187,7 @@ class _$_PicImage implements _PicImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
     required TResult orElse(),
   }) {
@@ -195,6 +207,7 @@ abstract class _$$_CaptureImageCopyWith<$Res> {
   factory _$$_CaptureImageCopyWith(
           _$_CaptureImage value, $Res Function(_$_CaptureImage) then) =
       __$$_CaptureImageCopyWithImpl<$Res>;
+  $Res call({dynamic context});
 }
 
 /// @nodoc
@@ -207,57 +220,80 @@ class __$$_CaptureImageCopyWithImpl<$Res>
 
   @override
   _$_CaptureImage get _value => super._value as _$_CaptureImage;
+
+  @override
+  $Res call({
+    Object? context = freezed,
+  }) {
+    return _then(_$_CaptureImage(
+      context == freezed ? _value.context : context,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$_CaptureImage implements _CaptureImage {
-  const _$_CaptureImage();
+  const _$_CaptureImage(this.context);
+
+  @override
+  final dynamic context;
 
   @override
   String toString() {
-    return 'AttachBillEvent.captureImage()';
+    return 'AttachBillEvent.captureImage(context: $context)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_CaptureImage);
+        (other.runtimeType == runtimeType &&
+            other is _$_CaptureImage &&
+            const DeepCollectionEquality().equals(other.context, context));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(context));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_CaptureImageCopyWith<_$_CaptureImage> get copyWith =>
+      __$$_CaptureImageCopyWithImpl<_$_CaptureImage>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picImage,
-    required TResult Function() captureImage,
+    required TResult Function(dynamic context) captureImage,
+    required TResult Function() picFile,
     required TResult Function() picPdf,
   }) {
-    return captureImage();
+    return captureImage(context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
   }) {
-    return captureImage?.call();
+    return captureImage?.call(context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
     required TResult orElse(),
   }) {
     if (captureImage != null) {
-      return captureImage();
+      return captureImage(context);
     }
     return orElse();
   }
@@ -267,6 +303,7 @@ class _$_CaptureImage implements _CaptureImage {
   TResult map<TResult extends Object?>({
     required TResult Function(_PicImage value) picImage,
     required TResult Function(_CaptureImage value) captureImage,
+    required TResult Function(_PicFile value) picFile,
     required TResult Function(_PicPdf value) picPdf,
   }) {
     return captureImage(this);
@@ -277,6 +314,7 @@ class _$_CaptureImage implements _CaptureImage {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
   }) {
     return captureImage?.call(this);
@@ -287,6 +325,7 @@ class _$_CaptureImage implements _CaptureImage {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
     required TResult orElse(),
   }) {
@@ -298,7 +337,127 @@ class _$_CaptureImage implements _CaptureImage {
 }
 
 abstract class _CaptureImage implements AttachBillEvent {
-  const factory _CaptureImage() = _$_CaptureImage;
+  const factory _CaptureImage(final dynamic context) = _$_CaptureImage;
+
+  dynamic get context => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_CaptureImageCopyWith<_$_CaptureImage> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$_PicFileCopyWith<$Res> {
+  factory _$$_PicFileCopyWith(
+          _$_PicFile value, $Res Function(_$_PicFile) then) =
+      __$$_PicFileCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$_PicFileCopyWithImpl<$Res> extends _$AttachBillEventCopyWithImpl<$Res>
+    implements _$$_PicFileCopyWith<$Res> {
+  __$$_PicFileCopyWithImpl(_$_PicFile _value, $Res Function(_$_PicFile) _then)
+      : super(_value, (v) => _then(v as _$_PicFile));
+
+  @override
+  _$_PicFile get _value => super._value as _$_PicFile;
+}
+
+/// @nodoc
+
+class _$_PicFile implements _PicFile {
+  const _$_PicFile();
+
+  @override
+  String toString() {
+    return 'AttachBillEvent.picFile()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$_PicFile);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() picImage,
+    required TResult Function(dynamic context) captureImage,
+    required TResult Function() picFile,
+    required TResult Function() picPdf,
+  }) {
+    return picFile();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? picImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
+    TResult Function()? picPdf,
+  }) {
+    return picFile?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? picImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
+    TResult Function()? picPdf,
+    required TResult orElse(),
+  }) {
+    if (picFile != null) {
+      return picFile();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_PicImage value) picImage,
+    required TResult Function(_CaptureImage value) captureImage,
+    required TResult Function(_PicFile value) picFile,
+    required TResult Function(_PicPdf value) picPdf,
+  }) {
+    return picFile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_PicImage value)? picImage,
+    TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
+    TResult Function(_PicPdf value)? picPdf,
+  }) {
+    return picFile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_PicImage value)? picImage,
+    TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
+    TResult Function(_PicPdf value)? picPdf,
+    required TResult orElse(),
+  }) {
+    if (picFile != null) {
+      return picFile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PicFile implements AttachBillEvent {
+  const factory _PicFile() = _$_PicFile;
 }
 
 /// @nodoc
@@ -340,7 +499,8 @@ class _$_PicPdf implements _PicPdf {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picImage,
-    required TResult Function() captureImage,
+    required TResult Function(dynamic context) captureImage,
+    required TResult Function() picFile,
     required TResult Function() picPdf,
   }) {
     return picPdf();
@@ -350,7 +510,8 @@ class _$_PicPdf implements _PicPdf {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
   }) {
     return picPdf?.call();
@@ -360,7 +521,8 @@ class _$_PicPdf implements _PicPdf {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picImage,
-    TResult Function()? captureImage,
+    TResult Function(dynamic context)? captureImage,
+    TResult Function()? picFile,
     TResult Function()? picPdf,
     required TResult orElse(),
   }) {
@@ -375,6 +537,7 @@ class _$_PicPdf implements _PicPdf {
   TResult map<TResult extends Object?>({
     required TResult Function(_PicImage value) picImage,
     required TResult Function(_CaptureImage value) captureImage,
+    required TResult Function(_PicFile value) picFile,
     required TResult Function(_PicPdf value) picPdf,
   }) {
     return picPdf(this);
@@ -385,6 +548,7 @@ class _$_PicPdf implements _PicPdf {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
   }) {
     return picPdf?.call(this);
@@ -395,6 +559,7 @@ class _$_PicPdf implements _PicPdf {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_PicImage value)? picImage,
     TResult Function(_CaptureImage value)? captureImage,
+    TResult Function(_PicFile value)? picFile,
     TResult Function(_PicPdf value)? picPdf,
     required TResult orElse(),
   }) {

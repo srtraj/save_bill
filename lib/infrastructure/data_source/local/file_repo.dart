@@ -36,12 +36,10 @@ class FileRepo implements IFileRepo {
   }
 
   @override
-  Future<Either<Failure, List<File>>> pickMultipleImage() async {
+  Future<Either<Failure, List<File>>> pickMultipleFile() async {
     try {
-
       final value = await FilePicker.platform.pickFiles(
         allowMultiple: true,
-        type: FileType.image,
       );
 
       if (value != null) {
@@ -69,15 +67,14 @@ class FileRepo implements IFileRepo {
       return const Left(Failure.internalFailure());
     }
   }
-  
+
   @override
   Future<Either<Failure, File>> captureImage(context) async {
-
-      try {
+    try {
       final value = await Navigator.pushNamed(
-    context,
-    Routes.cameraPreview,
-  );
+        context,
+        Routes.cameraPreview,
+      );
       if (value != null) {
         return Right(value as File);
       } else {
@@ -87,10 +84,10 @@ class FileRepo implements IFileRepo {
       return const Left(Failure.internalFailure());
     }
   }
-  
+
   @override
   Future<Either<Failure, File>> pickPdf() async {
-      try {
+    try {
       final value = await FilePicker.platform.pickFiles(
         type: FileType.custom,
         allowedExtensions: ['pdf'],
