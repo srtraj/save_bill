@@ -24,7 +24,7 @@ class DetailsTextFieldWidget extends StatelessWidget {
             errorBorder: InputBorder.none,
             disabledBorder: InputBorder.none,
             contentPadding: EdgeInsets.zero,
-            hintText: "Enter details",
+            hintText: "Enter details (Optional)",
           ),
         ),
       ),

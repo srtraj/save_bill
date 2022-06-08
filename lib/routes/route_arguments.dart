@@ -13,3 +13,8 @@ class CameraPreviewArguement {
   List<CameraDescription> camera;
   CameraPreviewArguement({required this.camera});
 }
+
+class AddBillArguement {
+  bool isGave;
+  AddBillArguement({this.isGave=false});
+}

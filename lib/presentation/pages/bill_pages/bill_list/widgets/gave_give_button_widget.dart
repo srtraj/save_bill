@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/core/meta_colors.dart';
+import 'package:save_bill/routes/route_arguments.dart';
+import 'package:save_bill/routes/routes.dart';
 
 class GaveGiveButtonWidget extends StatelessWidget {
   const GaveGiveButtonWidget({
@@ -15,7 +17,8 @@ class GaveGiveButtonWidget extends StatelessWidget {
         children: [
           Expanded(
             child: GestureDetector(
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Routes.addBill,
+                  arguments: AddBillArguement(isGave: true)),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
@@ -39,7 +42,8 @@ class GaveGiveButtonWidget extends StatelessWidget {
           ),
           Expanded(
             child: GestureDetector(
-              onTap: () {},
+              onTap: () => Navigator.pushNamed(context, Routes.addBill,
+                  arguments: AddBillArguement(isGave: false)),
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),

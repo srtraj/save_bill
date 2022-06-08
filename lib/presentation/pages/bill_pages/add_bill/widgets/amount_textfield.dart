@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:save_bill/presentation/functions.dart';
 
 class AmountTextFieldWidget extends StatelessWidget {
   const AmountTextFieldWidget({
@@ -17,7 +19,7 @@ class AmountTextFieldWidget extends StatelessWidget {
       color: Colors.white,
       child: Padding(
         padding: const EdgeInsets.all(2),
-        child: TextField(
+        child: TextFormField(
           controller: _cntPrice,
           style: TextStyle(
             color: mainColor,
@@ -38,6 +40,18 @@ class AmountTextFieldWidget extends StatelessWidget {
               size: 18,
             ),
           ),
+          keyboardType: TextInputType.number,
+          inputFormatters: <TextInputFormatter>[
+            FilteringTextInputFormatter.allow(RegExp("[0-9.]")),
+            FilteringTextInputFormatter.deny(RegExp("[.]{2}"),
+                replacementString: "."),
+          ],
+          validator: (val) {
+            if (val == null || val.isEmpty) {
+              return "Amount is required";
+            }
+            return isNumeric(val) ? null : "Invalid Amount";
+          },
         ),
       ),
     );

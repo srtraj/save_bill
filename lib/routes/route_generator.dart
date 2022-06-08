@@ -61,17 +61,19 @@ class RouteGenerator {
         return MaterialPageRoute(
             settings: settings, builder: (_) => const BillHome());
       case Routes.addBill:
+        final argument = settings.arguments as AddBillArguement;
         return MaterialPageRoute(
-            settings: settings, 
-                   builder: (_) => BlocProvider(
+          settings: settings,
+          builder: (_) => BlocProvider(
             create: (_) => getItInstance<AttachBillBloc>(),
-            child: const AddBill(),
-          ),);
+            child: AddBill(
+              argument: argument,
+            ),
+          ),
+        );
       case Routes.cameraPreview:
         return MaterialPageRoute(
-            settings: settings, 
-            builder: (_) =>  const CameraPreviewPage()
-            );
+            settings: settings, builder: (_) => const CameraPreviewPage());
 
       default:
         return _errorRoute();

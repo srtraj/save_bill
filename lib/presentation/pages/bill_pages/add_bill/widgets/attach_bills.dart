@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:save_bill/application/attach_bill_bloc/attach_bill_bloc.dart';
-import 'package:save_bill/presentation/pages/bill_pages/add_bill/function.dart';
+import 'package:save_bill/presentation/pages/bill_pages/function.dart';
 
 class AttachBillsWidget extends StatelessWidget {
   const AttachBillsWidget({

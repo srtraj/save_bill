@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
@@ -17,3 +15,8 @@ showTaost({required String message}) {
       textColor: Colors.white,
       fontSize: 16.0);
 }
+
+isNumeric(String str) {
+  return double.parse(str);
+}
+

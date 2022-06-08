@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/core/meta_colors.dart';
+import 'package:save_bill/routes/route_arguments.dart';
 import 'widgets/amount_textfield.dart';
 import 'widgets/attach_bills.dart';
 import 'widgets/attach_chips_list.dart';
@@ -7,8 +8,8 @@ import 'widgets/calender_dropdown.dart';
 import 'widgets/details_textfield.dart';
 
 class AddBill extends StatefulWidget {
-  final bool isGave;
-  const AddBill({Key? key, this.isGave = false}) : super(key: key);
+  final AddBillArguement argument;
+  const AddBill({Key? key, required this.argument}) : super(key: key);
 
   @override
   State<AddBill> createState() => _AddBillState();
@@ -19,13 +20,12 @@ class _AddBillState extends State<AddBill> {
   late Color appBarColor;
   late TextEditingController _cntPrice;
   late TextEditingController _cntDetails;
-  late bool _isTap;
   @override
   void initState() {
-    mainColor = widget.isGave ? MetaColor.gaveColor : MetaColor.getColor;
+    mainColor =
+        widget.argument.isGave ? MetaColor.gaveColor : MetaColor.getColor;
     _cntPrice = TextEditingController();
     _cntDetails = TextEditingController();
-    _isTap = false;
     super.initState();
   }
 
@@ -75,6 +75,7 @@ class _AddBillState extends State<AddBill> {
                   SizedBox(
                     width: double.infinity,
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(primary: mainColor),
                       onPressed: () {},
                       child: const Text("Save"),
                     ),
