@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:save_bill/application/sms_reminder/sms_reminder_cubit.dart';
+import 'package:save_bill/application/whatsapp_reminder/whatsapp_reminder_cubit.dart';
 import 'package:save_bill/presentation/functions.dart';
-import 'package:save_bill/presentation/pages/bill_pages/function.dart';
-
 import 'package:save_bill/presentation/widgets/icon_label_widget.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BillReportRemindBar extends StatelessWidget {
   const BillReportRemindBar({
@@ -27,17 +27,61 @@ class BillReportRemindBar extends StatelessWidget {
                   label: "Report"),
             ),
             Expanded(
-              child: GestureDetector(
-                onTap: () async => openWhatsapp(
-                  number: '8157898849',
-                  message: 'Dear Sir/Madam,\n\nPlease find the attached bill report.\n\nThank you.',
-                ),
-                child: const IconLabelWidget(
-                    icon: Icon(
-                      Icons.whatsapp,
-                      color: Colors.green,
-                    ),
-                    label: "Remind"),
+              child: BlocConsumer<WhatsappReminderCubit, WhatsappReminderState>(
+                listener: (context, state) {
+                  if (state is ErrorWhatsappReminder) {
+                    showTaost(
+                        message: "Something went wrong,Please try again later");
+                  }
+                },
+                builder: (context, state) {
+                  if (state is LoadingWhatsappReminder) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  return GestureDetector(
+                    onTap: () async => context
+                        .read<WhatsappReminderCubit>()
+                        .sendWhatsappReminder(
+                            mobNumber: "918157898849",
+                            name: "Sharathraj",
+                            price: "1500"),
+                    child: const IconLabelWidget(
+                        icon: Icon(
+                          Icons.whatsapp,
+                          color: Colors.green,
+                        ),
+                        label: "Remind"),
+                  );
+                },
+              ),
+            ),
+            Expanded(
+              child: BlocConsumer<SmsReminderCubit, SmsReminderState>(
+                listener: (context, state) {
+                  if (state is ErrorSmsReminder) {
+                    showTaost(
+                        message: "Something went wrong,Please try again later");
+                  }
+                },
+                builder: (context, state) {
+                  if (state is LoadingSmsReminder) {
+                    return const Center(child: CircularProgressIndicator());
+                  }
+                  return GestureDetector(
+                    onTap: () async => context
+                        .read<SmsReminderCubit>()
+                        .sendSmsReminder(
+                            mobNumber: "918157898849",
+                            name: "Sharathraj",
+                            price: "1500"),
+                    child: const IconLabelWidget(
+                        icon: Icon(
+                          Icons.sms_outlined,
+                          color: Colors.blue,
+                        ),
+                        label: "Sms"),
+                  );
+                },
               ),
             )
           ],

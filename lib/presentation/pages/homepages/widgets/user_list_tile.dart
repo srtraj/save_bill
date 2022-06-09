@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/domain/models/user_model/user_model.dart';
 import 'package:save_bill/presentation/functions.dart';
+import 'package:save_bill/presentation/widgets/first_letter_circular_avatar.dart';
 import 'package:save_bill/routes/route_arguments.dart';
 import 'package:save_bill/routes/routes.dart';
 
@@ -20,16 +21,7 @@ class UserListTile extends StatelessWidget {
           border: Border.all(width: 0.04),
         ),
         child: ListTile(
-          leading: CircleAvatar(
-            backgroundColor: Colors.blue,
-            child: Text(
-              getFirstLetterFromName(user.name),
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle1!
-                  .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
-            ),
-          ),
+          leading: FirstLetterCircularAvatar(name: user.name),
           title: Text(
             user.name,
             style: Theme.of(context).textTheme.subtitle1,
@@ -45,6 +37,4 @@ class UserListTile extends StatelessWidget {
       ),
     );
   }
-
- 
 }

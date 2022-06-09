@@ -3,11 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:save_bill/application/attach_bill_bloc/attach_bill_bloc.dart';
 import 'package:save_bill/application/contact_list_bloc/contact_list_bloc.dart';
 import 'package:save_bill/application/profile_upadte_bloc/profile_upload_bloc.dart';
+import 'package:save_bill/application/sms_reminder/sms_reminder_cubit.dart';
 import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
+import 'package:save_bill/application/whatsapp_reminder/whatsapp_reminder_cubit.dart';
 import 'package:save_bill/domain/di/get_it.dart';
 import 'package:save_bill/presentation/pages/add_customer/add_customer_page.dart';
 import 'package:save_bill/presentation/pages/bill_pages/add_bill/add_bill.dart';
 import 'package:save_bill/presentation/pages/bill_pages/bill_list/bill_list.dart';
+import 'package:save_bill/presentation/pages/bill_pages/entry_details/entry_detail_page.dart';
 import 'package:save_bill/presentation/widgets/camera_preview.dart';
 import 'package:save_bill/presentation/pages/get_start/get_start_page.dart';
 import 'package:save_bill/presentation/pages/homepages/homepage.dart';
@@ -59,7 +62,20 @@ class RouteGenerator {
         );
       case Routes.billHome:
         return MaterialPageRoute(
-            settings: settings, builder: (_) => const BillHome());
+            settings: settings, 
+             builder: (_) => MultiBlocProvider(
+            providers: [
+               BlocProvider(
+             create: (_) => getItInstance<WhatsappReminderCubit>(),
+              ),
+                 BlocProvider(
+             create: (_) => getItInstance<SmsReminderCubit>(),
+              ),
+              ],
+            child: const BillHome(),
+          ),
+       
+            );
       case Routes.addBill:
         final argument = settings.arguments as AddBillArguement;
         return MaterialPageRoute(
@@ -74,6 +90,9 @@ class RouteGenerator {
       case Routes.cameraPreview:
         return MaterialPageRoute(
             settings: settings, builder: (_) => const CameraPreviewPage());
+ case Routes.billEntryDetailPage:
+        return MaterialPageRoute(
+            settings: settings, builder: (_) => const EntryDetailPage());
 
       default:
         return _errorRoute();

@@ -16,7 +16,9 @@ showTaost({required String message}) {
       fontSize: 16.0);
 }
 
-isNumeric(String str) {
-  return double.parse(str);
+bool isNumeric(String? s) {
+ if (s == null) {
+   return false;
+ }
+ return double.tryParse(s) != null;
 }
-

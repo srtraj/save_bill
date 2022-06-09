@@ -16,4 +16,5 @@ class Routes {
   static const String homepage = "homepage";
   static const String addCustomer = "addCustomer";
   static const String cameraPreview = "cameraPreview";
+  static const String billEntryDetailPage="billEntryDetailPage";
 }

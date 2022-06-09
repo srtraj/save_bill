@@ -14,7 +14,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.profileUpdatePage,
+      initialRoute: Routes.billEntryDetailPage,
       onGenerateRoute: _routeGenerator.generateRoute,
     );
   }

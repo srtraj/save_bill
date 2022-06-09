@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/core/meta_colors.dart';
+import 'package:save_bill/presentation/pages/bill_pages/bill_list/widgets/whatsapp_reminder_bill_design.dart';
+import 'package:save_bill/presentation/pages/bill_pages/function.dart';
 import 'package:save_bill/routes/route_arguments.dart';
 import 'widgets/amount_textfield.dart';
 import 'widgets/attach_bills.dart';
@@ -20,6 +22,7 @@ class _AddBillState extends State<AddBill> {
   late Color appBarColor;
   late TextEditingController _cntPrice;
   late TextEditingController _cntDetails;
+  final _formKey = GlobalKey<FormState>();
   @override
   void initState() {
     mainColor =
@@ -52,35 +55,40 @@ class _AddBillState extends State<AddBill> {
             hasScrollBody: false,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15),
-              child: Column(
-                children: [
-                  AmountTextFieldWidget(
-                      cntPrice: _cntPrice, mainColor: mainColor),
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  DetailsTextFieldWidget(cntDetails: _cntDetails),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  Row(
-                    children: [
-                      CalenderDropdownWidget(mainColor: mainColor),
-                      const Spacer(),
-                      AttachBillsWidget(mainColor: mainColor)
-                    ],
-                  ),
-                  const AttachChipsList(),
-                  const Spacer(),
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: mainColor),
-                      onPressed: () {},
-                      child: const Text("Save"),
+              child: Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    AmountTextFieldWidget(
+                        cntPrice: _cntPrice, mainColor: mainColor),
+                    const SizedBox(
+                      height: 10,
                     ),
-                  )
-                ],
+                    DetailsTextFieldWidget(cntDetails: _cntDetails),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      children: [
+                        CalenderDropdownWidget(mainColor: mainColor),
+                        const Spacer(),
+                        AttachBillsWidget(mainColor: mainColor)
+                      ],
+                    ),
+                    const AttachChipsList(),
+                    const Spacer(),
+                    SizedBox(
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(primary: mainColor),
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {}
+                        },
+                        child: const Text("Save"),
+                      ),
+                    )
+                  ],
+                ),
               ),
             ),
           ),

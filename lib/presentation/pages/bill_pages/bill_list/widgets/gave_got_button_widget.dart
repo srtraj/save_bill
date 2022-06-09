@@ -3,8 +3,8 @@ import 'package:save_bill/core/meta_colors.dart';
 import 'package:save_bill/routes/route_arguments.dart';
 import 'package:save_bill/routes/routes.dart';
 
-class GaveGiveButtonWidget extends StatelessWidget {
-  const GaveGiveButtonWidget({
+class GaveGotButtonWidget extends StatelessWidget {
+  const GaveGotButtonWidget({
     Key? key,
   }) : super(key: key);
 
@@ -52,7 +52,7 @@ class GaveGiveButtonWidget extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Center(
                   child: Text(
-                    "Get",
+                    "Got",
                     style: Theme.of(context)
                         .textTheme
                         .headline6!
