@@ -22,7 +22,7 @@ class GaveGotButtonWidget extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: MetaColor.gaveColor,
+                  color: MetaColor.billColor,
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Center(
@@ -47,7 +47,7 @@ class GaveGotButtonWidget extends StatelessWidget {
               child: Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: MetaColor.getColor,
+                  color: MetaColor.recievedColor,
                 ),
                 padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Center(

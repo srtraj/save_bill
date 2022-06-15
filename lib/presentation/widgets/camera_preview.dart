@@ -204,7 +204,7 @@ class _CameraPreviewPageState extends State<CameraPreviewPage>
         });
       }
     } catch (_) {
-      showTaost(message: 'Error taking picture');
+      showToast(message: 'Error taking picture');
     }
   }
 
@@ -221,7 +221,7 @@ class _CameraPreviewPageState extends State<CameraPreviewPage>
         return null;
       }
     } on Exception catch (_) {
-      showTaost(message: "Error cropping image,Please try again");
+      showToast(message: "Error cropping image,Please try again");
     }
   }
 }

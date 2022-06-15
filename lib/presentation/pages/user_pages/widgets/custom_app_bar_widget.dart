@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:save_bill/core/meta_assets.dart';
-import 'package:save_bill/presentation/pages/homepages/widgets/view_report_card.dart';
 
-class CustomAppBarWidget extends StatelessWidget with PreferredSizeWidget {
-  const CustomAppBarWidget({Key? key}) : super(key: key);
+import 'view_report_card.dart';
+
+class UserAppBarWidget extends StatelessWidget with PreferredSizeWidget {
+  const UserAppBarWidget({Key? key}) : super(key: key);
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight + 100);
   @override

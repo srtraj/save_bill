@@ -53,7 +53,7 @@ class FileRepo implements IFileRepo {
   }
 
   @override
-  Future<Either<Failure, File>> pickSingleImage() async {
+  Future<Either<Failure, File>> pickImage() async {
     try {
       final value = await FilePicker.platform.pickFiles(
         type: FileType.image,

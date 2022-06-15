@@ -5,10 +5,7 @@ class BillListArgument {
   BillListArgument({required this.clientId});
 }
 
-class OtpVerificationArgument {
-  String mobile;
-  OtpVerificationArgument({required this.mobile});
-}
+
 class CameraPreviewArguement {
   List<CameraDescription> camera;
   CameraPreviewArguement({required this.camera});

@@ -3,10 +3,18 @@ import 'package:save_bill/domain/di/get_it.dart';
 import 'package:save_bill/routes/route_generator.dart';
 import 'package:save_bill/routes/routes.dart';
 
-class App extends StatelessWidget {
-  App({Key? key}) : super(key: key);
+import 'pdf_view.dart';
 
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
   final RouteGenerator _routeGenerator = getItInstance<RouteGenerator>();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -14,8 +22,16 @@ class App extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      initialRoute: Routes.billEntryDetailPage,
+      initialRoute: Routes.profileUpdatePage,
       onGenerateRoute: _routeGenerator.generateRoute,
+      // home: PdfPage(),
     );
   }
+    @override
+  void dispose() {
+    _routeGenerator.dispose();
+    super.dispose();
+  }
 }
+
+

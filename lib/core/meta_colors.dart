@@ -4,6 +4,6 @@ class MetaColor {
   MetaColor._();
 
   static const Color grey = Color(0xFFF2F3F4);
-  static const Color gaveColor = Colors.red;
-  static const Color getColor = Color(0xFFF196F3D);
+  static const Color billColor = Colors.red;
+  static const Color recievedColor = Color.fromARGB(255, 25, 111, 61);
 }

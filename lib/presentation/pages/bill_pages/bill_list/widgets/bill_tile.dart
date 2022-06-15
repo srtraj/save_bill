@@ -46,7 +46,7 @@ class BillTile extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: MetaColor.gaveColor,
+                    color: MetaColor.billColor,
                   ),
                 ),
               ),
@@ -60,7 +60,7 @@ class BillTile extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
-                    color: MetaColor.getColor,
+                    color: MetaColor.recievedColor,
                   ),
                 ),
               ),

@@ -3,14 +3,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
 
-class SearchCardWidget extends StatefulWidget {
-  const SearchCardWidget({Key? key}) : super(key: key);
+class UserSearchCardWidget extends StatefulWidget {
+  const UserSearchCardWidget({Key? key}) : super(key: key);
 
   @override
-  State<SearchCardWidget> createState() => _SearchCardWidgetState();
+  State<UserSearchCardWidget> createState() => _UserSearchCardWidgetState();
 }
 
-class _SearchCardWidgetState extends State<SearchCardWidget> {
+class _UserSearchCardWidgetState extends State<UserSearchCardWidget> {
   late bool _isTap;
   late TextEditingController _cnt;
 

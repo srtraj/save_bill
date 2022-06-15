@@ -36,61 +36,58 @@ class _PhoneTextFieldState extends State<PhoneTextField> {
           });
         }
       },
-      child: SizedBox(
-        height: 45,
-        child: TextFormField(
-          controller: widget.controller,
-          decoration: InputDecoration(
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
+      child: TextFormField(
+        controller: widget.controller,
+        decoration: InputDecoration(
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            contentPadding: EdgeInsets.zero,
+            suffixIcon: _isFocus
+                ? GestureDetector(
+                    onTap: () {
+                      widget.controller.clear();
+                      FocusScope.of(context).unfocus();
+                    },
+                    child: const Icon(Icons.clear),
+                  )
+                : null,
+            prefixIcon: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  SvgPicture.asset(
+                    Assets.assetsImagesIndiaFlag,
+                    height: 25,
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  const Text(
+                    "+91",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(
+                    width: 5,
+                  ),
+                  const Text("-"),
+                ],
               ),
-              suffixIcon: _isFocus
-                  ? GestureDetector(
-                      onTap: () {
-                        widget.controller.clear();
-                        FocusScope.of(context).unfocus();
-                      },
-                      child: const Icon(Icons.clear),
-                    )
-                  : null,
-              prefixIcon: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    SvgPicture.asset(
-                      Assets.assetsImagesIndiaFlag,
-                      height: 25,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    const Text(
-                      "+91",
-                      style: TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const SizedBox(
-                      width: 5,
-                    ),
-                    const Text("-"),
-                  ],
-                ),
-              ),
-              contentPadding: EdgeInsets.zero,
-              hintText: widget.hintText),
-          keyboardType: TextInputType.number,
-          inputFormatters: <TextInputFormatter>[
-            FilteringTextInputFormatter.digitsOnly,
-            LengthLimitingTextInputFormatter(10),
-          ],
-          validator: (val) {
-            if (val!.length != 10) {
-              return "Please enter valid phone number";
-            }
-            return null;
-          },
-        ),
+            ),
+            hintText: widget.hintText),
+        keyboardType: TextInputType.number,
+        inputFormatters: <TextInputFormatter>[
+          FilteringTextInputFormatter.digitsOnly,
+          LengthLimitingTextInputFormatter(10),
+        ],
+        validator: (val) {
+          if (val!.length != 10) {
+            return "Please enter valid phone number";
+          }
+          return null;
+        },
       ),
     );
   }

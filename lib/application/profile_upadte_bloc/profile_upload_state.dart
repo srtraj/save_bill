@@ -4,10 +4,12 @@ part of 'profile_upload_bloc.dart';
 class ProfileUploadState with _$ProfileUploadState {
   const factory ProfileUploadState({
     required bool isLoading,
-    List<File>? multiData,
-    File? data,
+    required bool uploadCompleted,
+    required bool fetchCompleted,
+    File? imageData,
+    String? name,
     Failure? error,
   }) = _ProfileUploadState;
-  factory ProfileUploadState.initial() =>
-      const ProfileUploadState(isLoading: false, multiData: []);
+  factory ProfileUploadState.initial() => const ProfileUploadState(
+      isLoading: false, uploadCompleted: false, fetchCompleted: false);
 }

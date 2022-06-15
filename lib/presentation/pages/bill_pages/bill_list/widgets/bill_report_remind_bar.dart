@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:save_bill/application/sms_reminder/sms_reminder_cubit.dart';
-import 'package:save_bill/application/whatsapp_reminder/whatsapp_reminder_cubit.dart';
+import 'package:save_bill/application/sms_reminder_bloc/sms_reminder_cubit.dart';
+import 'package:save_bill/application/whatsapp_reminder_bloc/whatsapp_reminder_cubit.dart';
 import 'package:save_bill/presentation/functions.dart';
 import 'package:save_bill/presentation/widgets/icon_label_widget.dart';
 
@@ -24,13 +24,13 @@ class BillReportRemindBar extends StatelessWidget {
                     Icons.currency_rupee_rounded,
                     color: Colors.blue,
                   ),
-                  label: "Report"),
+                  label: Text("Report")),
             ),
             Expanded(
               child: BlocConsumer<WhatsappReminderCubit, WhatsappReminderState>(
                 listener: (context, state) {
                   if (state is ErrorWhatsappReminder) {
-                    showTaost(
+                    showToast(
                         message: "Something went wrong,Please try again later");
                   }
                 },
@@ -50,7 +50,7 @@ class BillReportRemindBar extends StatelessWidget {
                           Icons.whatsapp,
                           color: Colors.green,
                         ),
-                        label: "Remind"),
+                        label: Text("Remind")),
                   );
                 },
               ),
@@ -59,7 +59,7 @@ class BillReportRemindBar extends StatelessWidget {
               child: BlocConsumer<SmsReminderCubit, SmsReminderState>(
                 listener: (context, state) {
                   if (state is ErrorSmsReminder) {
-                    showTaost(
+                    showToast(
                         message: "Something went wrong,Please try again later");
                   }
                 },
@@ -79,7 +79,7 @@ class BillReportRemindBar extends StatelessWidget {
                           Icons.sms_outlined,
                           color: Colors.blue,
                         ),
-                        label: "Sms"),
+                        label: Text("Sms")),
                   );
                 },
               ),

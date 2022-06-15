@@ -9,12 +9,13 @@ class Routes {
   static const String addBill = 'addBill';
   static const String addItem = "addItem";
   static const String saveBillTabPage = "saveBillTabPage";
-  static const String getStartPage = "getStartPage";
+  // static const String getStartPage = "getStartPage";
   static const String phoneVerification = "phoneVerification";
   static const String otpVerification = "otpVerification";
   static const String profileUpdatePage = "profileUpdatePage";
   static const String homepage = "homepage";
   static const String addCustomer = "addCustomer";
   static const String cameraPreview = "cameraPreview";
-  static const String billEntryDetailPage="billEntryDetailPage";
+  static const String billEntryDetailPage = "billEntryDetailPage";
+  static const String viewReportPage = "viewReportPage";
 }

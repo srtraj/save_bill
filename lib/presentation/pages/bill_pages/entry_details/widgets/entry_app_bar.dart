@@ -43,7 +43,7 @@ class EntryAppBar extends StatelessWidget with PreferredSizeWidget {
                     ),
                     trailing: Text("₹ 100",
                         style: Theme.of(context).textTheme.headline6!.copyWith(
-                            color: MetaColor.gaveColor,
+                            color: MetaColor.billColor,
                             fontWeight: FontWeight.bold)),
                   ),
                   const Divider(),
@@ -62,7 +62,7 @@ class EntryAppBar extends StatelessWidget with PreferredSizeWidget {
                               .textTheme
                               .labelLarge!
                               .copyWith(
-                                  color: MetaColor.gaveColor,
+                                  color: MetaColor.billColor,
                                   fontWeight: FontWeight.bold),
                         ),
                       ],

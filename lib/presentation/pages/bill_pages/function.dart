@@ -44,7 +44,7 @@ openAttachBillModal({
                             size: wt * 12,
                             color: Colors.red,
                           ),
-                          label: "Images"),
+                          label: Text("Images")),
                     ),
                     SizedBox(
                       width: wt * 10,
@@ -59,7 +59,7 @@ openAttachBillModal({
                             Icons.photo_camera,
                             size: wt * 12,
                           ),
-                          label: "Camera"),
+                          label: Text("Camera")),
                     ),
                     SizedBox(
                       width: wt * 10,
@@ -75,7 +75,7 @@ openAttachBillModal({
                             size: wt * 12,
                             color: const Color(0xFFF9BA04),
                           ),
-                          label: "File"),
+                          label: Text("File")),
                     ),
                   ],
                 ),

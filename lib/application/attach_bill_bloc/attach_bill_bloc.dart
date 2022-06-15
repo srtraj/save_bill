@@ -19,8 +19,7 @@ class AttachBillBloc extends Bloc<AttachBillEvent, AttachBillState> {
       if (event is _PicImage) {
         try {
           emit(state.copyWith(isLoading: true));
-          Either<Failure, File> picResponse =
-              await _fileRepo.pickSingleImage();
+          Either<Failure, File> picResponse = await _fileRepo.pickImage();
           await picResponse.fold(
               (error) async =>
                   emit(state.copyWith(isLoading: false, error: error)),
@@ -49,7 +48,8 @@ class AttachBillBloc extends Bloc<AttachBillEvent, AttachBillState> {
       if (event is _PicFile) {
         try {
           emit(state.copyWith(isLoading: true));
-          Either<Failure, List<File>> picResponse = await _fileRepo.pickMultipleFile();
+          Either<Failure, List<File>> picResponse =
+              await _fileRepo.pickMultipleFile();
           await picResponse.fold(
               (error) async =>
                   emit(state.copyWith(isLoading: false, error: error)),

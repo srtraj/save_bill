@@ -21,6 +21,8 @@ mixin _$Failure {
     required TResult Function() clientFailure,
     required TResult Function() serverFailure,
     required TResult Function() internalFailure,
+    required TResult Function(PlatformException exception) platformFailure,
+    required TResult Function(FirebaseAuthException exception) firebaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +30,8 @@ mixin _$Failure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +39,8 @@ mixin _$Failure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +49,8 @@ mixin _$Failure {
     required TResult Function(_ClientFailure value) clientFailure,
     required TResult Function(_ServerFailure value) serverFailure,
     required TResult Function(_InternalFailure value) internalFailure,
+    required TResult Function(_PlatformFailure value) platformFailure,
+    required TResult Function(FirebaseError value) firebaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +58,8 @@ mixin _$Failure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +67,8 @@ mixin _$Failure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -120,6 +132,8 @@ class _$_ClientFailure implements _ClientFailure {
     required TResult Function() clientFailure,
     required TResult Function() serverFailure,
     required TResult Function() internalFailure,
+    required TResult Function(PlatformException exception) platformFailure,
+    required TResult Function(FirebaseAuthException exception) firebaseError,
   }) {
     return clientFailure();
   }
@@ -130,6 +144,8 @@ class _$_ClientFailure implements _ClientFailure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
   }) {
     return clientFailure?.call();
   }
@@ -140,6 +156,8 @@ class _$_ClientFailure implements _ClientFailure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
     required TResult orElse(),
   }) {
     if (clientFailure != null) {
@@ -154,6 +172,8 @@ class _$_ClientFailure implements _ClientFailure {
     required TResult Function(_ClientFailure value) clientFailure,
     required TResult Function(_ServerFailure value) serverFailure,
     required TResult Function(_InternalFailure value) internalFailure,
+    required TResult Function(_PlatformFailure value) platformFailure,
+    required TResult Function(FirebaseError value) firebaseError,
   }) {
     return clientFailure(this);
   }
@@ -164,6 +184,8 @@ class _$_ClientFailure implements _ClientFailure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
   }) {
     return clientFailure?.call(this);
   }
@@ -174,6 +196,8 @@ class _$_ClientFailure implements _ClientFailure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
     required TResult orElse(),
   }) {
     if (clientFailure != null) {
@@ -230,6 +254,8 @@ class _$_ServerFailure implements _ServerFailure {
     required TResult Function() clientFailure,
     required TResult Function() serverFailure,
     required TResult Function() internalFailure,
+    required TResult Function(PlatformException exception) platformFailure,
+    required TResult Function(FirebaseAuthException exception) firebaseError,
   }) {
     return serverFailure();
   }
@@ -240,6 +266,8 @@ class _$_ServerFailure implements _ServerFailure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
   }) {
     return serverFailure?.call();
   }
@@ -250,6 +278,8 @@ class _$_ServerFailure implements _ServerFailure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -264,6 +294,8 @@ class _$_ServerFailure implements _ServerFailure {
     required TResult Function(_ClientFailure value) clientFailure,
     required TResult Function(_ServerFailure value) serverFailure,
     required TResult Function(_InternalFailure value) internalFailure,
+    required TResult Function(_PlatformFailure value) platformFailure,
+    required TResult Function(FirebaseError value) firebaseError,
   }) {
     return serverFailure(this);
   }
@@ -274,6 +306,8 @@ class _$_ServerFailure implements _ServerFailure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
   }) {
     return serverFailure?.call(this);
   }
@@ -284,6 +318,8 @@ class _$_ServerFailure implements _ServerFailure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
     required TResult orElse(),
   }) {
     if (serverFailure != null) {
@@ -340,6 +376,8 @@ class _$_InternalFailure implements _InternalFailure {
     required TResult Function() clientFailure,
     required TResult Function() serverFailure,
     required TResult Function() internalFailure,
+    required TResult Function(PlatformException exception) platformFailure,
+    required TResult Function(FirebaseAuthException exception) firebaseError,
   }) {
     return internalFailure();
   }
@@ -350,6 +388,8 @@ class _$_InternalFailure implements _InternalFailure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
   }) {
     return internalFailure?.call();
   }
@@ -360,6 +400,8 @@ class _$_InternalFailure implements _InternalFailure {
     TResult Function()? clientFailure,
     TResult Function()? serverFailure,
     TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
     required TResult orElse(),
   }) {
     if (internalFailure != null) {
@@ -374,6 +416,8 @@ class _$_InternalFailure implements _InternalFailure {
     required TResult Function(_ClientFailure value) clientFailure,
     required TResult Function(_ServerFailure value) serverFailure,
     required TResult Function(_InternalFailure value) internalFailure,
+    required TResult Function(_PlatformFailure value) platformFailure,
+    required TResult Function(FirebaseError value) firebaseError,
   }) {
     return internalFailure(this);
   }
@@ -384,6 +428,8 @@ class _$_InternalFailure implements _InternalFailure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
   }) {
     return internalFailure?.call(this);
   }
@@ -394,6 +440,8 @@ class _$_InternalFailure implements _InternalFailure {
     TResult Function(_ClientFailure value)? clientFailure,
     TResult Function(_ServerFailure value)? serverFailure,
     TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
     required TResult orElse(),
   }) {
     if (internalFailure != null) {
@@ -405,4 +453,308 @@ class _$_InternalFailure implements _InternalFailure {
 
 abstract class _InternalFailure implements Failure {
   const factory _InternalFailure() = _$_InternalFailure;
+}
+
+/// @nodoc
+abstract class _$$_PlatformFailureCopyWith<$Res> {
+  factory _$$_PlatformFailureCopyWith(
+          _$_PlatformFailure value, $Res Function(_$_PlatformFailure) then) =
+      __$$_PlatformFailureCopyWithImpl<$Res>;
+  $Res call({PlatformException exception});
+}
+
+/// @nodoc
+class __$$_PlatformFailureCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$$_PlatformFailureCopyWith<$Res> {
+  __$$_PlatformFailureCopyWithImpl(
+      _$_PlatformFailure _value, $Res Function(_$_PlatformFailure) _then)
+      : super(_value, (v) => _then(v as _$_PlatformFailure));
+
+  @override
+  _$_PlatformFailure get _value => super._value as _$_PlatformFailure;
+
+  @override
+  $Res call({
+    Object? exception = freezed,
+  }) {
+    return _then(_$_PlatformFailure(
+      exception == freezed
+          ? _value.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as PlatformException,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_PlatformFailure implements _PlatformFailure {
+  const _$_PlatformFailure(this.exception);
+
+  @override
+  final PlatformException exception;
+
+  @override
+  String toString() {
+    return 'Failure.platformFailure(exception: $exception)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_PlatformFailure &&
+            const DeepCollectionEquality().equals(other.exception, exception));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_PlatformFailureCopyWith<_$_PlatformFailure> get copyWith =>
+      __$$_PlatformFailureCopyWithImpl<_$_PlatformFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clientFailure,
+    required TResult Function() serverFailure,
+    required TResult Function() internalFailure,
+    required TResult Function(PlatformException exception) platformFailure,
+    required TResult Function(FirebaseAuthException exception) firebaseError,
+  }) {
+    return platformFailure(exception);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clientFailure,
+    TResult Function()? serverFailure,
+    TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
+  }) {
+    return platformFailure?.call(exception);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clientFailure,
+    TResult Function()? serverFailure,
+    TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
+    required TResult orElse(),
+  }) {
+    if (platformFailure != null) {
+      return platformFailure(exception);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClientFailure value) clientFailure,
+    required TResult Function(_ServerFailure value) serverFailure,
+    required TResult Function(_InternalFailure value) internalFailure,
+    required TResult Function(_PlatformFailure value) platformFailure,
+    required TResult Function(FirebaseError value) firebaseError,
+  }) {
+    return platformFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClientFailure value)? clientFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
+  }) {
+    return platformFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClientFailure value)? clientFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
+    required TResult orElse(),
+  }) {
+    if (platformFailure != null) {
+      return platformFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _PlatformFailure implements Failure {
+  const factory _PlatformFailure(final PlatformException exception) =
+      _$_PlatformFailure;
+
+  PlatformException get exception => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$_PlatformFailureCopyWith<_$_PlatformFailure> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$FirebaseErrorCopyWith<$Res> {
+  factory _$$FirebaseErrorCopyWith(
+          _$FirebaseError value, $Res Function(_$FirebaseError) then) =
+      __$$FirebaseErrorCopyWithImpl<$Res>;
+  $Res call({FirebaseAuthException exception});
+}
+
+/// @nodoc
+class __$$FirebaseErrorCopyWithImpl<$Res> extends _$FailureCopyWithImpl<$Res>
+    implements _$$FirebaseErrorCopyWith<$Res> {
+  __$$FirebaseErrorCopyWithImpl(
+      _$FirebaseError _value, $Res Function(_$FirebaseError) _then)
+      : super(_value, (v) => _then(v as _$FirebaseError));
+
+  @override
+  _$FirebaseError get _value => super._value as _$FirebaseError;
+
+  @override
+  $Res call({
+    Object? exception = freezed,
+  }) {
+    return _then(_$FirebaseError(
+      exception == freezed
+          ? _value.exception
+          : exception // ignore: cast_nullable_to_non_nullable
+              as FirebaseAuthException,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$FirebaseError implements FirebaseError {
+  const _$FirebaseError(this.exception);
+
+  @override
+  final FirebaseAuthException exception;
+
+  @override
+  String toString() {
+    return 'Failure.firebaseError(exception: $exception)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$FirebaseError &&
+            const DeepCollectionEquality().equals(other.exception, exception));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(exception));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$FirebaseErrorCopyWith<_$FirebaseError> get copyWith =>
+      __$$FirebaseErrorCopyWithImpl<_$FirebaseError>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() clientFailure,
+    required TResult Function() serverFailure,
+    required TResult Function() internalFailure,
+    required TResult Function(PlatformException exception) platformFailure,
+    required TResult Function(FirebaseAuthException exception) firebaseError,
+  }) {
+    return firebaseError(exception);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? clientFailure,
+    TResult Function()? serverFailure,
+    TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
+  }) {
+    return firebaseError?.call(exception);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? clientFailure,
+    TResult Function()? serverFailure,
+    TResult Function()? internalFailure,
+    TResult Function(PlatformException exception)? platformFailure,
+    TResult Function(FirebaseAuthException exception)? firebaseError,
+    required TResult orElse(),
+  }) {
+    if (firebaseError != null) {
+      return firebaseError(exception);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ClientFailure value) clientFailure,
+    required TResult Function(_ServerFailure value) serverFailure,
+    required TResult Function(_InternalFailure value) internalFailure,
+    required TResult Function(_PlatformFailure value) platformFailure,
+    required TResult Function(FirebaseError value) firebaseError,
+  }) {
+    return firebaseError(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ClientFailure value)? clientFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
+  }) {
+    return firebaseError?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ClientFailure value)? clientFailure,
+    TResult Function(_ServerFailure value)? serverFailure,
+    TResult Function(_InternalFailure value)? internalFailure,
+    TResult Function(_PlatformFailure value)? platformFailure,
+    TResult Function(FirebaseError value)? firebaseError,
+    required TResult orElse(),
+  }) {
+    if (firebaseError != null) {
+      return firebaseError(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class FirebaseError implements Failure {
+  const factory FirebaseError(final FirebaseAuthException exception) =
+      _$FirebaseError;
+
+  FirebaseAuthException get exception => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  _$$FirebaseErrorCopyWith<_$FirebaseError> get copyWith =>
+      throw _privateConstructorUsedError;
 }

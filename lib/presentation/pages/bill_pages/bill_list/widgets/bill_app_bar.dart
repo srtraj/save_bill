@@ -50,7 +50,7 @@ class BillAppBar extends StatelessWidget with PreferredSizeWidget {
                       style: TextStyle(
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        color: MetaColor.getColor,
+                        color: MetaColor.recievedColor,
                       ),
                     ),
                   ],

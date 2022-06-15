@@ -26,7 +26,7 @@ class _AddBillState extends State<AddBill> {
   @override
   void initState() {
     mainColor =
-        widget.argument.isGave ? MetaColor.gaveColor : MetaColor.getColor;
+        widget.argument.isGave ? MetaColor.billColor : MetaColor.recievedColor;
     _cntPrice = TextEditingController();
     _cntDetails = TextEditingController();
     super.initState();
