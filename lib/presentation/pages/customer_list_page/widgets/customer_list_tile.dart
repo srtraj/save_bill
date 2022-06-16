@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:save_bill/domain/models/user_model/user_model.dart';
-import 'package:save_bill/presentation/functions.dart';
+import 'package:save_bill/domain/models/customer_model/customer_model.dart';
 import 'package:save_bill/presentation/widgets/first_letter_circular_avatar.dart';
 import 'package:save_bill/routes/route_arguments.dart';
 import 'package:save_bill/routes/routes.dart';
 
-class UserListTile extends StatelessWidget {
-  final UserModel user;
-  const UserListTile({Key? key, required this.user}) : super(key: key);
+class CustomerListTileWidget extends StatelessWidget {
+  final CustomerDataModel user;
+  const CustomerListTileWidget({Key? key, required this.user}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

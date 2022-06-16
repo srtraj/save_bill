@@ -1,11 +1,8 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:open_file/open_file.dart';
-import 'package:save_bill/presentation/functions.dart';
-import 'package:save_bill/presentation/pages/view_report_pages/pdf_view_report.dart';
+import 'package:save_bill/application/download_complete_report_bloc/download_complete_report_cubit.dart';
 import 'package:save_bill/presentation/widgets/icon_label_widget.dart';
-
 class DownloadReportButton extends StatelessWidget {
   const DownloadReportButton({
     Key? key,
@@ -17,12 +14,7 @@ class DownloadReportButton extends StatelessWidget {
       color: Theme.of(context).primaryColor,
       child: InkWell(
         onTap: () async {
-          final extDir = await getDowloadPath();
-          final fileName =
-              "${DateTime.now().toString().replaceAll(RegExp(r'[-: .]'), "")}_report.pdf";
-          final file = File('$extDir/$fileName');
-          await file.writeAsBytes(await PDFViewReport.generate());
-          await OpenFile.open(file.path);
+         context.read<DownloadCompleteReportCubit>().download();
         },
         child: const SizedBox(
           height: 45,

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'user_model.dart';
+part of 'customer_model.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UserModel _$UserModelFromJson(Map<String, dynamic> json) {
+CustomerDataModel _$CustomerDataModelFromJson(Map<String, dynamic> json) {
   return _UserModel.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UserModel {
+mixin _$CustomerDataModel {
   int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get price => throw _privateConstructorUsedError;
@@ -28,25 +28,27 @@ mixin _$UserModel {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UserModelCopyWith<UserModel> get copyWith =>
+  $CustomerDataModelCopyWith<CustomerDataModel> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserModelCopyWith<$Res> {
-  factory $UserModelCopyWith(UserModel value, $Res Function(UserModel) then) =
-      _$UserModelCopyWithImpl<$Res>;
+abstract class $CustomerDataModelCopyWith<$Res> {
+  factory $CustomerDataModelCopyWith(
+          CustomerDataModel value, $Res Function(CustomerDataModel) then) =
+      _$CustomerDataModelCopyWithImpl<$Res>;
   $Res call(
       {int id, String name, int price, DateTime created, DateTime modified});
 }
 
 /// @nodoc
-class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
-  _$UserModelCopyWithImpl(this._value, this._then);
+class _$CustomerDataModelCopyWithImpl<$Res>
+    implements $CustomerDataModelCopyWith<$Res> {
+  _$CustomerDataModelCopyWithImpl(this._value, this._then);
 
-  final UserModel _value;
+  final CustomerDataModel _value;
   // ignore: unused_field
-  final $Res Function(UserModel) _then;
+  final $Res Function(CustomerDataModel) _then;
 
   @override
   $Res call({
@@ -82,7 +84,8 @@ class _$UserModelCopyWithImpl<$Res> implements $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
+abstract class _$$_UserModelCopyWith<$Res>
+    implements $CustomerDataModelCopyWith<$Res> {
   factory _$$_UserModelCopyWith(
           _$_UserModel value, $Res Function(_$_UserModel) then) =
       __$$_UserModelCopyWithImpl<$Res>;
@@ -92,7 +95,8 @@ abstract class _$$_UserModelCopyWith<$Res> implements $UserModelCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_UserModelCopyWithImpl<$Res> extends _$UserModelCopyWithImpl<$Res>
+class __$$_UserModelCopyWithImpl<$Res>
+    extends _$CustomerDataModelCopyWithImpl<$Res>
     implements _$$_UserModelCopyWith<$Res> {
   __$$_UserModelCopyWithImpl(
       _$_UserModel _value, $Res Function(_$_UserModel) _then)
@@ -160,7 +164,7 @@ class _$_UserModel implements _UserModel {
 
   @override
   String toString() {
-    return 'UserModel(id: $id, name: $name, price: $price, created: $created, modified: $modified)';
+    return 'CustomerDataModel(id: $id, name: $name, price: $price, created: $created, modified: $modified)';
   }
 
   @override
@@ -196,7 +200,7 @@ class _$_UserModel implements _UserModel {
   }
 }
 
-abstract class _UserModel implements UserModel {
+abstract class _UserModel implements CustomerDataModel {
   factory _UserModel(
       {required final int id,
       required final String name,

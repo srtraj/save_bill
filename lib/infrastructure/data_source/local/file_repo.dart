@@ -14,6 +14,7 @@ class FileRepo implements IFileRepo {
     try {
       CroppedFile? croppedFile = await ImageCropper().cropImage(
           sourcePath: file.path,
+          compressQuality: 50,
           aspectRatioPresets: Platform.isAndroid
               ? [
                   CropAspectRatioPreset.square,

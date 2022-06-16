@@ -23,8 +23,7 @@ class VerifyPhoneBloc extends Bloc<VerifyPhoneEvent, VerifyPhoneState> {
         try {
           bool isResend = ModalRoute.of(event.context)!.settings.name ==
               Routes.otpVerification;
-          print(
-              "------------------${state.resendToken}*****************$isResend");
+        
           emit(state.copyWith(
               isLoading: true,
               isCodesent: false,
@@ -80,7 +79,7 @@ class VerifyPhoneBloc extends Bloc<VerifyPhoneEvent, VerifyPhoneState> {
       }
 
       if (event is CodeAutoRetrievalTimeout) {
-        emit(state);
+        // emit(state);
       }
     });
   }

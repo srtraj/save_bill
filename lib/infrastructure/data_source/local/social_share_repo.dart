@@ -4,6 +4,7 @@ import 'package:path_provider/path_provider.dart';
 import 'package:save_bill/domain/failures/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:save_bill/domain/i_repo/i_social_share_repo.dart';
+import 'package:save_bill/presentation/functions.dart';
 import 'package:save_bill/presentation/pages/bill_pages/bill_list/widgets/whatsapp_reminder_bill_design.dart';
 import 'package:screenshot/screenshot.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -22,7 +23,7 @@ class SocialShareRepo implements ISocialShareRepo {
       final directory = await getExternalStorageDirectory();
       final savePath = "${directory!.path}/sent/$mobNumber";
       final fileName =
-          "${DateTime.now().toString().replaceAll(RegExp(r'[-: .]'), "")}_reminder.jpg";
+          "${uniqueIdFromDate()}_reminder.jpg";
       if (!await Directory(savePath).exists()) {
         await Directory(savePath).create(recursive: true);
       }

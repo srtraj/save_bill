@@ -1,14 +1,17 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get_it/get_it.dart';
 import 'package:save_bill/application/mobile_login_bloc/otp_resend_clock_bloc/otp_resend_clock_cubit.dart';
 import 'package:save_bill/application/mobile_login_bloc/verify_otp_bloc/verify_otp_bloc.dart';
 import 'package:save_bill/application/mobile_login_bloc/verify_phone_bloc/verify_phone_bloc.dart';
 import 'package:save_bill/core/constants.dart';
 import 'package:save_bill/core/meta_assets.dart';
 import 'package:save_bill/domain/failures/failure.dart';
+import 'package:save_bill/domain/i_repo/i_local_db_repo.dart';
 import 'package:save_bill/presentation/functions.dart';
 import 'package:save_bill/presentation/pages/login_page/otp_verification_page/widgets/pin_field.dart';
+
 import 'package:save_bill/routes/routes.dart';
 
 import 'widgets/custom_pin_keyboard.dart';
@@ -60,8 +63,10 @@ class _OtpVerificationState extends State<OtpVerification> {
               }
             }
             if (otpState.signInSuccess) {
+              GetIt.instance<ILocalDbRepo>()
+                  .setInitialPageInfo(pageInfo: Routes.profileUpdatePage);
               Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.profileUpdatePage, (route) => false);
+                  context, Routes.profileUpdatePage, (route) => false,);
             }
           },
           builder: (ctx, otpState) {

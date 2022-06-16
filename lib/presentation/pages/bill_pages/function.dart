@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:path_provider/path_provider.dart';
+import 'package:save_bill/presentation/functions.dart';
 import 'package:save_bill/presentation/pages/bill_pages/bill_list/widgets/whatsapp_reminder_bill_design.dart';
 import 'package:save_bill/presentation/widgets/icon_label_widget.dart';
 import 'package:screenshot/screenshot.dart';
@@ -104,7 +105,7 @@ convertWidgetToImageAndSave({required String mobNumber}) async {
   final directory = await getExternalStorageDirectory();
   final savePath = "${directory!.path}/sent/$mobNumber";
   final fileName =
-      "${DateTime.now().toString().replaceAll(RegExp(r'[-: .]'), "")}_reminder.jpg";
+      "${uniqueIdFromDate()}_reminder.jpg";
   if (!await Directory(savePath).exists()) {
     await Directory(savePath).create(recursive: true);
   }

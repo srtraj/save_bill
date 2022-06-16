@@ -4,9 +4,18 @@ import 'package:save_bill/application/contact_list_bloc/contact_list_bloc.dart';
 import 'package:save_bill/domain/models/contact_model/contact_model.dart';
 import 'package:save_bill/presentation/functions.dart';
 
-class ConatctListWidget extends StatelessWidget {
-  const ConatctListWidget({Key? key}) : super(key: key);
+class ConatctListWidget extends StatefulWidget {
+  const ConatctListWidget(
+      {Key? key, required this.mobController, required this.nameController})
+      : super(key: key);
+  final TextEditingController mobController;
+  final TextEditingController nameController;
 
+  @override
+  State<ConatctListWidget> createState() => _ConatctListWidgetState();
+}
+
+class _ConatctListWidgetState extends State<ConatctListWidget> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ContactListBloc, ContactListState>(
@@ -18,7 +27,16 @@ class ConatctListWidget extends StatelessWidget {
               ContactModel contact = state.data[index];
 
               return ListTile(
-                onTap: () {},
+                onTap: () {
+                  FocusScope.of(context).unfocus();
+                  setState(() {
+                    final phoneNumber = contact.phones.replaceAll(" ", "");
+
+                    widget.mobController.text =
+                        phoneNumber.substring(phoneNumber.length - 10);
+                    widget.nameController.text = contact.name;
+                  });
+                },
                 leading: Container(
                   height: 40,
                   width: 40,

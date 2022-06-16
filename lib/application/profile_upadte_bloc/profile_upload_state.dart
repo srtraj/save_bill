@@ -7,6 +7,7 @@ class ProfileUploadState with _$ProfileUploadState {
     required bool uploadCompleted,
     required bool fetchCompleted,
     File? imageData,
+    String? imageUrl,
     String? name,
     Failure? error,
   }) = _ProfileUploadState;

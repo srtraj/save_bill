@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:save_bill/application/profile_upadte_bloc/profile_upload_bloc.dart';
+import 'package:save_bill/domain/di/get_it.dart';
+import 'package:save_bill/domain/i_repo/i_local_db_repo.dart';
 import 'package:save_bill/presentation/functions.dart';
 import 'package:save_bill/presentation/pages/profile_update_page/profile_image.dart';
+
 import 'package:save_bill/routes/routes.dart';
 
 class ProfileUpdatePage extends StatefulWidget {
@@ -22,6 +25,7 @@ class _ProfileUpdatePageState extends State<ProfileUpdatePage> {
     context
         .read<ProfileUploadBloc>()
         .add(const ProfileUploadEvent.profileFetchFromDb());
+    print("--------------init---------prof>");
     super.initState();
   }
 
@@ -37,17 +41,23 @@ class _ProfileUpdatePageState extends State<ProfileUpdatePage> {
     final wt = MediaQuery.of(context).size.width / 100;
     return BlocConsumer<ProfileUploadBloc, ProfileUploadState>(
       listener: (context, state) {
+        print("--------------state---------prof>$state");
         if (state.isLoading) {
+          print("--------------called---------prof>$state");
           showLoaderDialog(context);
-        } else {
+        } else if (!state.isLoading &&
+            (state.uploadCompleted || state.fetchCompleted)) {
+          print("--------------closed---------prof>$state");
           Navigator.of(context).pop();
         }
         if (state.uploadCompleted == true) {
+          getItInstance<ILocalDbRepo>()
+              .setInitialPageInfo(pageInfo: Routes.homepage);
           Navigator.pushNamedAndRemoveUntil(
               context, Routes.homepage, (Route<dynamic> route) => false);
         }
         if (state.fetchCompleted == true) {
-          _cntName.text = state.name!;
+          _cntName.text = state.name ?? '';
         }
       },
       builder: (context, state) {
@@ -120,6 +130,7 @@ class _ProfileUpdatePageState extends State<ProfileUpdatePage> {
                                 context.read<ProfileUploadBloc>().add(
                                     ProfileUploadEvent.profileUploadToDb(
                                         image: state.imageData,
+                                        imageUrl: state.imageUrl,
                                         name: _cntName.text));
                               }
                             },

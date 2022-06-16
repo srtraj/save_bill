@@ -1,40 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:save_bill/application/user_bloc/user_list_bloc.dart';
-import 'package:save_bill/domain/models/user_model/user_model.dart';
+import 'package:save_bill/application/customer_bloc/customer_list_bloc.dart';
+import 'package:save_bill/domain/models/customer_model/customer_model.dart';
 
-import 'user_list_tile.dart';
-import 'user_search_card.dart';
+import 'customer_list_tile.dart';
+import 'customer_search_card.dart';
 
-class UserList extends StatefulWidget {
-  const UserList({Key? key}) : super(key: key);
+class CustomerListWidget extends StatefulWidget {
+  const CustomerListWidget({Key? key}) : super(key: key);
 
   @override
-  State<UserList> createState() => _UserListState();
+  State<CustomerListWidget> createState() => _CustomerListWidgetState();
 }
 
-class _UserListState extends State<UserList> {
-
+class _CustomerListWidgetState extends State<CustomerListWidget> {
   @override
   void initState() {
     context
-        .read<UserListBloc>()
-        .add(const UserListEvent.loadUser(phoneNumber: "8157898849"));
+        .read<CustomerListBloc>()
+        .add(const CustomerListEvent.loadUser(phoneNumber: "8157898849"));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<UserListBloc, UserListState>(
+    return BlocBuilder<CustomerListBloc, CustomerListState>(
       builder: (context, state) {
         if (!state.isLoading) {
-          List<UserModel> list = state.data;
+          List<CustomerDataModel> list = state.data;
           return Column(
             children: [
               const SizedBox(
                 height: 40,
               ),
-              const UserSearchCardWidget(),
+              const CustomerSearchCardWidget(),
               const SizedBox(
                 height: 15,
               ),
@@ -45,7 +44,7 @@ class _UserListState extends State<UserList> {
                     shrinkWrap: true,
                     itemCount: list.length,
                     itemBuilder: (context, index) {
-                      return UserListTile(
+                      return CustomerListTileWidget(
                         user: list[index],
                       );
                     }),

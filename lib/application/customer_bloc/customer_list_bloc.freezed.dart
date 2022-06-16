@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'user_list_bloc.dart';
+part of 'customer_list_bloc.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UserListEvent {
+mixin _$CustomerListEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String phoneNumber) loadUser,
@@ -57,20 +57,20 @@ mixin _$UserListEvent {
 }
 
 /// @nodoc
-abstract class $UserListEventCopyWith<$Res> {
-  factory $UserListEventCopyWith(
-          UserListEvent value, $Res Function(UserListEvent) then) =
-      _$UserListEventCopyWithImpl<$Res>;
+abstract class $CustomerListEventCopyWith<$Res> {
+  factory $CustomerListEventCopyWith(
+          CustomerListEvent value, $Res Function(CustomerListEvent) then) =
+      _$CustomerListEventCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class _$UserListEventCopyWithImpl<$Res>
-    implements $UserListEventCopyWith<$Res> {
-  _$UserListEventCopyWithImpl(this._value, this._then);
+class _$CustomerListEventCopyWithImpl<$Res>
+    implements $CustomerListEventCopyWith<$Res> {
+  _$CustomerListEventCopyWithImpl(this._value, this._then);
 
-  final UserListEvent _value;
+  final CustomerListEvent _value;
   // ignore: unused_field
-  final $Res Function(UserListEvent) _then;
+  final $Res Function(CustomerListEvent) _then;
 }
 
 /// @nodoc
@@ -82,7 +82,8 @@ abstract class _$$_LoadUserCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_LoadUserCopyWithImpl<$Res> extends _$UserListEventCopyWithImpl<$Res>
+class __$$_LoadUserCopyWithImpl<$Res>
+    extends _$CustomerListEventCopyWithImpl<$Res>
     implements _$$_LoadUserCopyWith<$Res> {
   __$$_LoadUserCopyWithImpl(
       _$_LoadUser _value, $Res Function(_$_LoadUser) _then)
@@ -114,7 +115,7 @@ class _$_LoadUser implements _LoadUser {
 
   @override
   String toString() {
-    return 'UserListEvent.loadUser(phoneNumber: $phoneNumber)';
+    return 'CustomerListEvent.loadUser(phoneNumber: $phoneNumber)';
   }
 
   @override
@@ -198,7 +199,7 @@ class _$_LoadUser implements _LoadUser {
   }
 }
 
-abstract class _LoadUser implements UserListEvent {
+abstract class _LoadUser implements CustomerListEvent {
   const factory _LoadUser({required final String phoneNumber}) = _$_LoadUser;
 
   String get phoneNumber => throw _privateConstructorUsedError;
@@ -217,7 +218,7 @@ abstract class _$$_FilterUserCopyWith<$Res> {
 
 /// @nodoc
 class __$$_FilterUserCopyWithImpl<$Res>
-    extends _$UserListEventCopyWithImpl<$Res>
+    extends _$CustomerListEventCopyWithImpl<$Res>
     implements _$$_FilterUserCopyWith<$Res> {
   __$$_FilterUserCopyWithImpl(
       _$_FilterUser _value, $Res Function(_$_FilterUser) _then)
@@ -249,7 +250,7 @@ class _$_FilterUser implements _FilterUser {
 
   @override
   String toString() {
-    return 'UserListEvent.filterUser(searchKey: $searchKey)';
+    return 'CustomerListEvent.filterUser(searchKey: $searchKey)';
   }
 
   @override
@@ -332,7 +333,7 @@ class _$_FilterUser implements _FilterUser {
   }
 }
 
-abstract class _FilterUser implements UserListEvent {
+abstract class _FilterUser implements CustomerListEvent {
   const factory _FilterUser({required final String searchKey}) = _$_FilterUser;
 
   String get searchKey => throw _privateConstructorUsedError;
@@ -342,39 +343,40 @@ abstract class _FilterUser implements UserListEvent {
 }
 
 /// @nodoc
-mixin _$UserListState {
+mixin _$CustomerListState {
   bool get isLoading => throw _privateConstructorUsedError;
-  List<UserModel>? get originalUserData => throw _privateConstructorUsedError;
-  List<UserModel> get data => throw _privateConstructorUsedError;
+  List<CustomerDataModel>? get originalUserData =>
+      throw _privateConstructorUsedError;
+  List<CustomerDataModel> get data => throw _privateConstructorUsedError;
   Failure? get error => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $UserListStateCopyWith<UserListState> get copyWith =>
+  $CustomerListStateCopyWith<CustomerListState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UserListStateCopyWith<$Res> {
-  factory $UserListStateCopyWith(
-          UserListState value, $Res Function(UserListState) then) =
-      _$UserListStateCopyWithImpl<$Res>;
+abstract class $CustomerListStateCopyWith<$Res> {
+  factory $CustomerListStateCopyWith(
+          CustomerListState value, $Res Function(CustomerListState) then) =
+      _$CustomerListStateCopyWithImpl<$Res>;
   $Res call(
       {bool isLoading,
-      List<UserModel>? originalUserData,
-      List<UserModel> data,
+      List<CustomerDataModel>? originalUserData,
+      List<CustomerDataModel> data,
       Failure? error});
 
   $FailureCopyWith<$Res>? get error;
 }
 
 /// @nodoc
-class _$UserListStateCopyWithImpl<$Res>
-    implements $UserListStateCopyWith<$Res> {
-  _$UserListStateCopyWithImpl(this._value, this._then);
+class _$CustomerListStateCopyWithImpl<$Res>
+    implements $CustomerListStateCopyWith<$Res> {
+  _$CustomerListStateCopyWithImpl(this._value, this._then);
 
-  final UserListState _value;
+  final CustomerListState _value;
   // ignore: unused_field
-  final $Res Function(UserListState) _then;
+  final $Res Function(CustomerListState) _then;
 
   @override
   $Res call({
@@ -391,11 +393,11 @@ class _$UserListStateCopyWithImpl<$Res>
       originalUserData: originalUserData == freezed
           ? _value.originalUserData
           : originalUserData // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>?,
+              as List<CustomerDataModel>?,
       data: data == freezed
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>,
+              as List<CustomerDataModel>,
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -416,16 +418,16 @@ class _$UserListStateCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_UserListStateCopyWith<$Res>
-    implements $UserListStateCopyWith<$Res> {
-  factory _$$_UserListStateCopyWith(
-          _$_UserListState value, $Res Function(_$_UserListState) then) =
-      __$$_UserListStateCopyWithImpl<$Res>;
+abstract class _$$_CustomerListStateCopyWith<$Res>
+    implements $CustomerListStateCopyWith<$Res> {
+  factory _$$_CustomerListStateCopyWith(_$_CustomerListState value,
+          $Res Function(_$_CustomerListState) then) =
+      __$$_CustomerListStateCopyWithImpl<$Res>;
   @override
   $Res call(
       {bool isLoading,
-      List<UserModel>? originalUserData,
-      List<UserModel> data,
+      List<CustomerDataModel>? originalUserData,
+      List<CustomerDataModel> data,
       Failure? error});
 
   @override
@@ -433,15 +435,15 @@ abstract class _$$_UserListStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_UserListStateCopyWithImpl<$Res>
-    extends _$UserListStateCopyWithImpl<$Res>
-    implements _$$_UserListStateCopyWith<$Res> {
-  __$$_UserListStateCopyWithImpl(
-      _$_UserListState _value, $Res Function(_$_UserListState) _then)
-      : super(_value, (v) => _then(v as _$_UserListState));
+class __$$_CustomerListStateCopyWithImpl<$Res>
+    extends _$CustomerListStateCopyWithImpl<$Res>
+    implements _$$_CustomerListStateCopyWith<$Res> {
+  __$$_CustomerListStateCopyWithImpl(
+      _$_CustomerListState _value, $Res Function(_$_CustomerListState) _then)
+      : super(_value, (v) => _then(v as _$_CustomerListState));
 
   @override
-  _$_UserListState get _value => super._value as _$_UserListState;
+  _$_CustomerListState get _value => super._value as _$_CustomerListState;
 
   @override
   $Res call({
@@ -450,7 +452,7 @@ class __$$_UserListStateCopyWithImpl<$Res>
     Object? data = freezed,
     Object? error = freezed,
   }) {
-    return _then(_$_UserListState(
+    return _then(_$_CustomerListState(
       isLoading: isLoading == freezed
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -458,11 +460,11 @@ class __$$_UserListStateCopyWithImpl<$Res>
       originalUserData: originalUserData == freezed
           ? _value._originalUserData
           : originalUserData // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>?,
+              as List<CustomerDataModel>?,
       data: data == freezed
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
-              as List<UserModel>,
+              as List<CustomerDataModel>,
       error: error == freezed
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -473,29 +475,29 @@ class __$$_UserListStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_UserListState implements _UserListState {
-  const _$_UserListState(
+class _$_CustomerListState implements _CustomerListState {
+  const _$_CustomerListState(
       {required this.isLoading,
-      final List<UserModel>? originalUserData,
-      required final List<UserModel> data,
+      final List<CustomerDataModel>? originalUserData,
+      required final List<CustomerDataModel> data,
       this.error})
       : _originalUserData = originalUserData,
         _data = data;
 
   @override
   final bool isLoading;
-  final List<UserModel>? _originalUserData;
+  final List<CustomerDataModel>? _originalUserData;
   @override
-  List<UserModel>? get originalUserData {
+  List<CustomerDataModel>? get originalUserData {
     final value = _originalUserData;
     if (value == null) return null;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
 
-  final List<UserModel> _data;
+  final List<CustomerDataModel> _data;
   @override
-  List<UserModel> get data {
+  List<CustomerDataModel> get data {
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_data);
   }
@@ -505,14 +507,14 @@ class _$_UserListState implements _UserListState {
 
   @override
   String toString() {
-    return 'UserListState(isLoading: $isLoading, originalUserData: $originalUserData, data: $data, error: $error)';
+    return 'CustomerListState(isLoading: $isLoading, originalUserData: $originalUserData, data: $data, error: $error)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_UserListState &&
+            other is _$_CustomerListState &&
             const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality()
                 .equals(other._originalUserData, _originalUserData) &&
@@ -530,27 +532,29 @@ class _$_UserListState implements _UserListState {
 
   @JsonKey(ignore: true)
   @override
-  _$$_UserListStateCopyWith<_$_UserListState> get copyWith =>
-      __$$_UserListStateCopyWithImpl<_$_UserListState>(this, _$identity);
+  _$$_CustomerListStateCopyWith<_$_CustomerListState> get copyWith =>
+      __$$_CustomerListStateCopyWithImpl<_$_CustomerListState>(
+          this, _$identity);
 }
 
-abstract class _UserListState implements UserListState {
-  const factory _UserListState(
+abstract class _CustomerListState implements CustomerListState {
+  const factory _CustomerListState(
       {required final bool isLoading,
-      final List<UserModel>? originalUserData,
-      required final List<UserModel> data,
-      final Failure? error}) = _$_UserListState;
+      final List<CustomerDataModel>? originalUserData,
+      required final List<CustomerDataModel> data,
+      final Failure? error}) = _$_CustomerListState;
 
   @override
   bool get isLoading => throw _privateConstructorUsedError;
   @override
-  List<UserModel>? get originalUserData => throw _privateConstructorUsedError;
+  List<CustomerDataModel>? get originalUserData =>
+      throw _privateConstructorUsedError;
   @override
-  List<UserModel> get data => throw _privateConstructorUsedError;
+  List<CustomerDataModel> get data => throw _privateConstructorUsedError;
   @override
   Failure? get error => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$$_UserListStateCopyWith<_$_UserListState> get copyWith =>
+  _$$_CustomerListStateCopyWith<_$_CustomerListState> get copyWith =>
       throw _privateConstructorUsedError;
 }

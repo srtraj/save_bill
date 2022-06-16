@@ -19,21 +19,24 @@ mixin _$ProfileUploadEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picProfile,
-    required TResult Function(String name, File? image) profileUploadToDb,
+    required TResult Function(String name, File? image, String? imageUrl)
+        profileUploadToDb,
     required TResult Function() profileFetchFromDb,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
     required TResult orElse(),
   }) =>
@@ -121,7 +124,8 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picProfile,
-    required TResult Function(String name, File? image) profileUploadToDb,
+    required TResult Function(String name, File? image, String? imageUrl)
+        profileUploadToDb,
     required TResult Function() profileFetchFromDb,
   }) {
     return picProfile();
@@ -131,7 +135,8 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
   }) {
     return picProfile?.call();
@@ -141,7 +146,8 @@ class _$_picProfile implements _picProfile {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
     required TResult orElse(),
   }) {
@@ -195,7 +201,7 @@ abstract class _$$ProfileUploadToDbCopyWith<$Res> {
   factory _$$ProfileUploadToDbCopyWith(
           _$ProfileUploadToDb value, $Res Function(_$ProfileUploadToDb) then) =
       __$$ProfileUploadToDbCopyWithImpl<$Res>;
-  $Res call({String name, File? image});
+  $Res call({String name, File? image, String? imageUrl});
 }
 
 /// @nodoc
@@ -213,6 +219,7 @@ class __$$ProfileUploadToDbCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? image = freezed,
+    Object? imageUrl = freezed,
   }) {
     return _then(_$ProfileUploadToDb(
       name: name == freezed
@@ -223,6 +230,10 @@ class __$$ProfileUploadToDbCopyWithImpl<$Res>
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
               as File?,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -230,16 +241,18 @@ class __$$ProfileUploadToDbCopyWithImpl<$Res>
 /// @nodoc
 
 class _$ProfileUploadToDb implements ProfileUploadToDb {
-  const _$ProfileUploadToDb({required this.name, this.image});
+  const _$ProfileUploadToDb({required this.name, this.image, this.imageUrl});
 
   @override
   final String name;
   @override
   final File? image;
+  @override
+  final String? imageUrl;
 
   @override
   String toString() {
-    return 'ProfileUploadEvent.profileUploadToDb(name: $name, image: $image)';
+    return 'ProfileUploadEvent.profileUploadToDb(name: $name, image: $image, imageUrl: $imageUrl)';
   }
 
   @override
@@ -248,14 +261,16 @@ class _$ProfileUploadToDb implements ProfileUploadToDb {
         (other.runtimeType == runtimeType &&
             other is _$ProfileUploadToDb &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.image, image));
+            const DeepCollectionEquality().equals(other.image, image) &&
+            const DeepCollectionEquality().equals(other.imageUrl, imageUrl));
   }
 
   @override
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(image));
+      const DeepCollectionEquality().hash(image),
+      const DeepCollectionEquality().hash(imageUrl));
 
   @JsonKey(ignore: true)
   @override
@@ -266,32 +281,35 @@ class _$ProfileUploadToDb implements ProfileUploadToDb {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picProfile,
-    required TResult Function(String name, File? image) profileUploadToDb,
+    required TResult Function(String name, File? image, String? imageUrl)
+        profileUploadToDb,
     required TResult Function() profileFetchFromDb,
   }) {
-    return profileUploadToDb(name, image);
+    return profileUploadToDb(name, image, imageUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
   }) {
-    return profileUploadToDb?.call(name, image);
+    return profileUploadToDb?.call(name, image, imageUrl);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
     required TResult orElse(),
   }) {
     if (profileUploadToDb != null) {
-      return profileUploadToDb(name, image);
+      return profileUploadToDb(name, image, imageUrl);
     }
     return orElse();
   }
@@ -333,10 +351,13 @@ class _$ProfileUploadToDb implements ProfileUploadToDb {
 
 abstract class ProfileUploadToDb implements ProfileUploadEvent {
   const factory ProfileUploadToDb(
-      {required final String name, final File? image}) = _$ProfileUploadToDb;
+      {required final String name,
+      final File? image,
+      final String? imageUrl}) = _$ProfileUploadToDb;
 
   String get name => throw _privateConstructorUsedError;
   File? get image => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   _$$ProfileUploadToDbCopyWith<_$ProfileUploadToDb> get copyWith =>
       throw _privateConstructorUsedError;
@@ -384,7 +405,8 @@ class _$ProfileFetchFromDb implements ProfileFetchFromDb {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() picProfile,
-    required TResult Function(String name, File? image) profileUploadToDb,
+    required TResult Function(String name, File? image, String? imageUrl)
+        profileUploadToDb,
     required TResult Function() profileFetchFromDb,
   }) {
     return profileFetchFromDb();
@@ -394,7 +416,8 @@ class _$ProfileFetchFromDb implements ProfileFetchFromDb {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
   }) {
     return profileFetchFromDb?.call();
@@ -404,7 +427,8 @@ class _$ProfileFetchFromDb implements ProfileFetchFromDb {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? picProfile,
-    TResult Function(String name, File? image)? profileUploadToDb,
+    TResult Function(String name, File? image, String? imageUrl)?
+        profileUploadToDb,
     TResult Function()? profileFetchFromDb,
     required TResult orElse(),
   }) {
@@ -459,6 +483,7 @@ mixin _$ProfileUploadState {
   bool get uploadCompleted => throw _privateConstructorUsedError;
   bool get fetchCompleted => throw _privateConstructorUsedError;
   File? get imageData => throw _privateConstructorUsedError;
+  String? get imageUrl => throw _privateConstructorUsedError;
   String? get name => throw _privateConstructorUsedError;
   Failure? get error => throw _privateConstructorUsedError;
 
@@ -477,6 +502,7 @@ abstract class $ProfileUploadStateCopyWith<$Res> {
       bool uploadCompleted,
       bool fetchCompleted,
       File? imageData,
+      String? imageUrl,
       String? name,
       Failure? error});
 
@@ -498,6 +524,7 @@ class _$ProfileUploadStateCopyWithImpl<$Res>
     Object? uploadCompleted = freezed,
     Object? fetchCompleted = freezed,
     Object? imageData = freezed,
+    Object? imageUrl = freezed,
     Object? name = freezed,
     Object? error = freezed,
   }) {
@@ -518,6 +545,10 @@ class _$ProfileUploadStateCopyWithImpl<$Res>
           ? _value.imageData
           : imageData // ignore: cast_nullable_to_non_nullable
               as File?,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -553,6 +584,7 @@ abstract class _$$_ProfileUploadStateCopyWith<$Res>
       bool uploadCompleted,
       bool fetchCompleted,
       File? imageData,
+      String? imageUrl,
       String? name,
       Failure? error});
 
@@ -577,6 +609,7 @@ class __$$_ProfileUploadStateCopyWithImpl<$Res>
     Object? uploadCompleted = freezed,
     Object? fetchCompleted = freezed,
     Object? imageData = freezed,
+    Object? imageUrl = freezed,
     Object? name = freezed,
     Object? error = freezed,
   }) {
@@ -597,6 +630,10 @@ class __$$_ProfileUploadStateCopyWithImpl<$Res>
           ? _value.imageData
           : imageData // ignore: cast_nullable_to_non_nullable
               as File?,
+      imageUrl: imageUrl == freezed
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String?,
       name: name == freezed
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -617,6 +654,7 @@ class _$_ProfileUploadState implements _ProfileUploadState {
       required this.uploadCompleted,
       required this.fetchCompleted,
       this.imageData,
+      this.imageUrl,
       this.name,
       this.error});
 
@@ -629,13 +667,15 @@ class _$_ProfileUploadState implements _ProfileUploadState {
   @override
   final File? imageData;
   @override
+  final String? imageUrl;
+  @override
   final String? name;
   @override
   final Failure? error;
 
   @override
   String toString() {
-    return 'ProfileUploadState(isLoading: $isLoading, uploadCompleted: $uploadCompleted, fetchCompleted: $fetchCompleted, imageData: $imageData, name: $name, error: $error)';
+    return 'ProfileUploadState(isLoading: $isLoading, uploadCompleted: $uploadCompleted, fetchCompleted: $fetchCompleted, imageData: $imageData, imageUrl: $imageUrl, name: $name, error: $error)';
   }
 
   @override
@@ -649,6 +689,7 @@ class _$_ProfileUploadState implements _ProfileUploadState {
             const DeepCollectionEquality()
                 .equals(other.fetchCompleted, fetchCompleted) &&
             const DeepCollectionEquality().equals(other.imageData, imageData) &&
+            const DeepCollectionEquality().equals(other.imageUrl, imageUrl) &&
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.error, error));
   }
@@ -660,6 +701,7 @@ class _$_ProfileUploadState implements _ProfileUploadState {
       const DeepCollectionEquality().hash(uploadCompleted),
       const DeepCollectionEquality().hash(fetchCompleted),
       const DeepCollectionEquality().hash(imageData),
+      const DeepCollectionEquality().hash(imageUrl),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(error));
 
@@ -676,6 +718,7 @@ abstract class _ProfileUploadState implements ProfileUploadState {
       required final bool uploadCompleted,
       required final bool fetchCompleted,
       final File? imageData,
+      final String? imageUrl,
       final String? name,
       final Failure? error}) = _$_ProfileUploadState;
 
@@ -687,6 +730,8 @@ abstract class _ProfileUploadState implements ProfileUploadState {
   bool get fetchCompleted => throw _privateConstructorUsedError;
   @override
   File? get imageData => throw _privateConstructorUsedError;
+  @override
+  String? get imageUrl => throw _privateConstructorUsedError;
   @override
   String? get name => throw _privateConstructorUsedError;
   @override
